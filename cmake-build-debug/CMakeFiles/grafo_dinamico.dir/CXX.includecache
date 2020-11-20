@@ -23,6 +23,8 @@ queue
 -
 list
 -
+stack
+-
 
 /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Vertice.h
 Arista.h

@@ -7,8 +7,9 @@
 
 //class Arista;
 #include "Vertice.h"
-#include <queue>
-#include <list>
+#include <queue> // para la cola
+#include <list> // para la lista
+#include <stack> // para la pila
 
 class Grafo {
 public:
@@ -32,22 +33,29 @@ public:
 
     void listaAdyacencia();
 
-    void eliminarArista(string, string);
+    void eliminarArista(string salida, string llegada);
 
-    bool eliminarVertice(string);
+    bool eliminarVertice(string pEliminar);
 
     void anular();
 
     void recorridoAnchura(string pOrigen);
+
+    void recorridoProfundidad(string pOrigen);
+
+    void primeroAnchura(string pOrigen, string pDestino);
 private:
     Vertice *h;
 
-    void eliminarArista(Vertice *, Vertice *);
+    void eliminarArista(Vertice * origen, Vertice * destino);
 
-    bool eliminarVertice(Vertice *);
+    bool eliminarVertice(Vertice * vert);
 
     void recorridoAnchura(Vertice *origen);
 
+    void recorridoProfundidad(Vertice *origen);
+
+    void primeroAnchura(Vertice * origen, Vertice * destino);
 };
 
 

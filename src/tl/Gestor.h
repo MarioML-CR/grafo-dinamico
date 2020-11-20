@@ -33,6 +33,8 @@ public:
     bool vacio() const;
 
     void recorridoAnchura(string pOrigen);
+
+    void recorridoProfundidad(string pOrigen);
 private:
     Grafo *grafo;
 };

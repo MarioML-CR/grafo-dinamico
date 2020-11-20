@@ -229,6 +229,70 @@ void Grafo::recorridoAnchura(Vertice *origen) {
     }
 }
 
+void Grafo::recorridoProfundidad(string pOrigen) {
+    Vertice *origen = getVertice(pOrigen);
+    recorridoProfundidad(origen);
+}
+
+void Grafo::recorridoProfundidad(Vertice *origen) {
+    if (origen == nullptr){
+        cout << "No exite el vértice\n";
+    } else {
+        int band, band2;
+        Vertice *actual;
+        stack<Vertice*> pila;
+        list<Vertice*> lista;
+        list<Vertice*>::iterator i; // iterador para la lista
+        pila.push(origen); // se coloca el vértice origen en una pila
+        while (!pila.empty()){ // mientras la pila no esté vacía:
+            band = 0;
+            actual = pila.top();
+            pila.pop(); // desepilar el vértice, será el vértice actual
+            for (i = lista.begin(); i != lista.end(); i++) { // si el vertice actual no ha sido visitado o está en la lista
+                if (*i == actual){
+                    band = 1;
+                }
+            }
+            if (band == 0){ // si el vertice actual no ha sido visitado:
+                cout << actual->getNombre() << ", "; // se "procesa" el vértice actual
+                lista.push_back(actual); // se coloca el vértice actual en la lista de visitados
+                Arista *aux = actual->getAdy(); // se va a ubicar en la primera arista del vértice actual
+                while (aux != nullptr){
+                    band2 = 0;
+                    for (i = lista.begin(); i != lista.end(); i++) {
+                        if (*i == aux->getAdy()) {
+                            band2 = 1;
+                        }
+                    }
+                    if (band2 == 0){ // para cada vértice que el vértice actual tiene como destino, y que no ha sido visitado.
+                        pila.push(aux->getAdy()); // apilar el vértice
+                    }
+                    aux = aux->getSig();
+                }
+            }
+        }
+    }
+}
+
+void Grafo::primeroAnchura(string pOrigen, string pDestino) {
+    Vertice *origen = getVertice(pOrigen);
+    Vertice *destino = getVertice(pDestino);
+    primeroAnchura(origen, destino);
+}
+
+void Grafo::primeroAnchura(Vertice *origen, Vertice *destino) {
+    if (origen == nullptr || destino == nullptr){
+        cout << "El origen o destino no existen\n";
+    } else {
+        // colocar el vértice origen en una cola
+        // inicializar una pila que almacene parejas de datos origen-destino
+        // mientras la cola no esté vacía
+        // desencolar un vértice, será el vértice actual
+        //si el vértice actual no ha sido visitado:
+        // si el vértice
+    }
+}
+
 
 
 

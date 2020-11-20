@@ -19,6 +19,7 @@ void eliminarVertice();
 void eliminarGrafo();
 void tamanio();
 void recorridoAnchura();
+void recorridoProfundidad();
 
 int main() {
     menu();
@@ -81,7 +82,7 @@ void procesarMenu(int & pOpcion, bool & salir) {
             recorridoAnchura();
             break;
         case 11:
-//            listaAdyacencia();
+            recorridoProfundidad();
             break;
         case 12:
 //            listaAdyacencia();
@@ -107,25 +108,56 @@ int ingresarNum(string msg){
     return num;
 }
 void insertVertice(){
-    gestor.insertVertice("Guadalajara");
-    gestor.insertVertice("Puebla");
-    gestor.insertVertice("DF");
-    gestor.insertVertice("Zacatecas");
-    gestor.insertVertice("Michoacan");
-    gestor.insertVertice("Los Cabos");
+//    gestor.insertVertice("Guadalajara");
+//    gestor.insertVertice("Puebla");
+//    gestor.insertVertice("DF");
+//    gestor.insertVertice("Zacatecas");
+//    gestor.insertVertice("Michoacan");
+//    gestor.insertVertice("Los Cabos");
+
+
+    gestor.insertVertice("A");
+    gestor.insertVertice("B");
+    gestor.insertVertice("C");
+    gestor.insertVertice("D");
+    gestor.insertVertice("E");
+    gestor.insertVertice("F");
+    gestor.insertVertice("G");
+
 }
 void insertaArista(){
-    gestor.insertaArista("Guadalajara", "DF", 500);
-    gestor.insertaArista("Guadalajara", "Zacatecas", 200);
-    gestor.insertaArista("Guadalajara", "Los Cabos", 600);
-    gestor.insertaArista("Puebla", "Michoacan", 100);
-    gestor.insertaArista("Puebla", "DF", 500);
-    gestor.insertaArista("DF", "Los Cabos", 200);
-    gestor.insertaArista("Zacatecas", "Puebla", 300);
-    gestor.insertaArista("Zacatecas", "Los Cabos", 800);
-    gestor.insertaArista("Michoacan", "Guadalajara", 400);
-    gestor.insertaArista("Michoacan", "DF", 300);
-    gestor.insertaArista("Los Cabos", "Michoacan", 300);
+//    gestor.insertaArista("Guadalajara", "DF", 500);
+//    gestor.insertaArista("Guadalajara", "Zacatecas", 200);
+//    gestor.insertaArista("Guadalajara", "Los Cabos", 600);
+//    gestor.insertaArista("Puebla", "Michoacan", 100);
+//    gestor.insertaArista("Puebla", "DF", 500);
+//    gestor.insertaArista("DF", "Los Cabos", 200);
+//    gestor.insertaArista("Zacatecas", "Puebla", 300);
+//    gestor.insertaArista("Zacatecas", "Los Cabos", 800);
+//    gestor.insertaArista("Michoacan", "Guadalajara", 400);
+//    gestor.insertaArista("Michoacan", "DF", 300);
+//    gestor.insertaArista("Los Cabos", "Michoacan", 300);
+
+    gestor.insertaArista("A", "A", 13);
+    gestor.insertaArista("A", "D", 18);
+    gestor.insertaArista("B", "B", 52);
+    gestor.insertaArista("B", "C", 17);
+    gestor.insertaArista("B", "D", 83);
+    gestor.insertaArista("B", "F", 97);
+    gestor.insertaArista("B", "G", 60);
+    gestor.insertaArista("C", "A", 4);
+    gestor.insertaArista("D", "B", 97);
+    gestor.insertaArista("D", "C", 37);
+    gestor.insertaArista("D", "D", 22);
+    gestor.insertaArista("D", "E", 41);
+    gestor.insertaArista("D", "G", 64);
+    gestor.insertaArista("E", "B", 8);
+    gestor.insertaArista("E", "E", 45);
+    gestor.insertaArista("E", "F", 92);
+    gestor.insertaArista("F", "A", 8);
+    gestor.insertaArista("F", "B", 45);
+    gestor.insertaArista("F", "E", 42);
+    gestor.insertaArista("G", "D", 17);
 }
 void insertVerticeUser(){
 
@@ -191,5 +223,16 @@ void recorridoAnchura(){
         cin.ignore();
         getline(cin, nombre, '\n');
         gestor.recorridoAnchura(nombre);
+    }
+}
+void recorridoProfundidad(){
+    if (gestor.vacio()){
+        cout << "Aún no se han ingresado vértices...\n";
+    } else {
+        string nombre;
+        cout << "Ingrese el nombre del vértice inicial\n";
+        cin.ignore();
+        getline(cin, nombre, '\n');
+        gestor.recorridoProfundidad(nombre);
     }
 }

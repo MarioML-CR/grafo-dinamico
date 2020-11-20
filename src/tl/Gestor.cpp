@@ -56,4 +56,8 @@ void Gestor::recorridoAnchura(string pOrigen) {
     getGrafo()->recorridoAnchura(pOrigen);
 }
 
+void Gestor::recorridoProfundidad(string pOrigen) {
+    getGrafo()->recorridoProfundidad(pOrigen);
+}
+
 
