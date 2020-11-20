@@ -39,6 +39,8 @@ public:
     void primeroAnchura(string pOrigen, string pDestino);
 
     void primeroProfundidad(string pOrigen, string pDestino);
+
+    void dijkstra(string pOrigen, string pDestino);
 private:
     Grafo *grafo;
 };

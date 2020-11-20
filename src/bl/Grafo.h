@@ -46,6 +46,8 @@ public:
     void primeroAnchura(string pOrigen, string pDestino);
 
     void primeroProfundidad(string pOrigen, string pDestino);
+
+    void dijkstra(string pOrigen, string pDestino);
 private:
     Vertice *h;
 
@@ -60,6 +62,10 @@ private:
     void primeroAnchura(Vertice * origen, Vertice * destino);
 
     void primeroProfundidad(Vertice * origen, Vertice * destino);
+
+    void dijkstra(Vertice * origen, Vertice * destino);
+
+    static bool comparacion(pair<Vertice*, int> a, pair<Vertice*, int> b);
 };
 
 

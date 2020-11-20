@@ -68,4 +68,8 @@ void Gestor::primeroProfundidad(string pOrigen, string pDestino) {
     getGrafo()->primeroProfundidad(pOrigen, pDestino);
 }
 
+void Gestor::dijkstra(string pOrigen, string pDestino) {
+    getGrafo()->dijkstra(pOrigen, pDestino);
+}
+
 

@@ -17,4 +17,4 @@ https://www.youtube.com/watch?v=Hi9JXydttU4 ==> Grafo dinamico C++ 7 Primero en 
 
 https://www.youtube.com/watch?v=G5XjgCm0EYw ==> Grafo dinamico C++ 8 Primero en profundidad
 
-https://www.youtube.com/watch?v=lqCxp7J5Pgk ==> Grafo dinamico C++ 9 Primero el mejor
+https://www.youtube.com/watch?v=lqCxp7J5Pgk ==> Grafo dinamico C++ 9 Primero el mejor (Dijkstra)

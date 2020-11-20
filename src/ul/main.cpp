@@ -29,6 +29,7 @@ void recorridoAnchura();
 void recorridoProfundidad();
 void primeroAnchura();
 void primeroProfundidad();
+void dijkstra();
 
 int main() {
     menu();
@@ -50,9 +51,8 @@ void menu() {
              "08 Recorrido en profundidad\n" <<
              "09 Primero en anchura\n" <<
              "10 Primero en profundidad\n" <<
-             "11 Primero en ...\n" <<
-             "12 Primero en ..\n" <<
-             "15 Salir\n";
+             "11 Ruta de menor costo (Dijkstra)\n" <<
+             "12 Salir\n";
         cin >> valor;
         opcion = validar.ingresarInt(valor);
         procesarMenu(opcion, salir);
@@ -90,7 +90,10 @@ void procesarMenu(int & pOpcion, bool & salir) {
         case 10:
             primeroProfundidad();
             break;
-        case 15:
+        case 11:
+            dijkstra();
+            break;
+        case 12:
             salir = true;
             break;
         default:
@@ -416,5 +419,17 @@ void primeroProfundidad(){
         cout << "Ingrese el nombre de la vértice de llegada\n";
         cin >> llegada;
         gestor.primeroProfundidad(salida, llegada);
+    }
+}
+void dijkstra(){
+    if (gestor.vacio()){
+        cout << "Aún no se han ingresado vértices...\n";
+    } else {
+        string salida, llegada;
+        cout << "Ingrese el nombre de la vértice de salida\n";
+        cin >> salida;
+        cout << "Ingrese el nombre de la vértice de llegada\n";
+        cin >> llegada;
+        gestor.dijkstra(salida, llegada);
     }
 }

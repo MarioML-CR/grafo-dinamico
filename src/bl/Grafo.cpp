@@ -360,31 +360,7 @@ void Grafo::primeroProfundidad(string pOrigen, string pDestino) {
     el vértice origen en el tope de la pila se convierte en el destino actual
  */
 
-/*
- * Primero en profundidad
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- */
 
-/*
- * se recibe una pila con parejas de vértices origen-destino, y se recibe el vértice destino
- *
- *
- *
- *
- *
- *
- *
- */
 
 void Grafo::primeroProfundidad(Vertice *origen, Vertice *destino) {
     if (origen == nullptr || destino == nullptr){
@@ -445,6 +421,95 @@ void Grafo::primeroProfundidad(Vertice *origen, Vertice *destino) {
             cout << "No hay ruta entre esos dos vértices"; // no existe una ruta entre esos vértices.
         }
     }
+}
+
+void Grafo::dijkstra(string pOrigen, string pDestino) {
+    Vertice *origen = getVertice(pOrigen);
+    Vertice *destino = getVertice(pDestino);
+    dijkstra(origen, destino);
+}
+
+void Grafo::dijkstra(Vertice *origen, Vertice *destino) {
+    if (origen == nullptr || destino == nullptr){
+        cout << "El origen o destino no existen\n";
+    } else {
+        int costoActual = 0, band, band2 = 0;
+        Vertice *verticeActual, *destinoActual;
+        Arista *aux;
+        typedef pair<Vertice*, int> verticeCosto;
+        typedef pair<Vertice*, Vertice*> verticeVertice;
+        list<verticeCosto> listaCostos;
+        list<verticeCosto> listaOrdenada;
+        stack<verticeVertice> pila; // inicializar una pila que almacene parejas de datos origen-destino
+        list<verticeCosto>::iterator i, j;
+        listaCostos.push_back(verticeCosto(origen, 0)); // colocar el vértice origen en una lista "costos", asociar a este costo cero
+        listaOrdenada.push_back(verticeCosto(origen, 0)); // colocar el vértice origen en una lista ordenada (por costo), asociar a este un costo cero
+        while (!listaOrdenada.empty()){ // mientras la lista ordenada no esté vacía
+            verticeActual = listaOrdenada.front().first; // obtener el primer vértice de la lista ordenada, será el vértice actual.
+            costoActual = listaOrdenada.front().second; // el costo asociado a ese vértice será el costo actual
+            listaOrdenada.pop_front(); // eliminar el primer vértice de la lista
+            if (verticeActual == destino){ // si el vértice actual es igual al vértice destino
+                cout << "Costo: " << costoActual << endl;
+                band2 = 1;
+                // mostar la ruta encontrada y terminar
+                destinoActual = destino; // el vértice destino se convierte en destino actual
+                while (!pila.empty()){ // mientras la pila no esté vacía
+                    cout << destinoActual->getNombre() << "<-"; // imprimir el destino actual
+                    while (!pila.empty() && pila.top().second != destinoActual){ // mientras la pila no esté vacía y el vértice destino en el tope de la pila sea distinto del destino actual
+                        pila.pop(); // desapilar
+                    }
+                    if (!pila.empty()){ // si la pila no está vacía
+                        destinoActual = pila.top().first; // el vértice origen en el tope de la pila se convierte en el destino actual
+                    }
+                }
+                break;
+            }
+            aux = verticeActual->getAdy();
+            while (aux != nullptr){ // para cada vértice que el vértice actual tiene como destino
+                band = 0;
+                costoActual += aux->getPeso(); // calcular el costo del vértice destino, sumando su costo al costo actual
+                for (i = listaCostos.begin(); i != listaCostos.end(); i++){
+                    if (aux->getAdy() == i->first){
+                        band = 1;
+                        if (costoActual < i->second){ // de lo contrario: si el nuevo costo es menor al costo que tiene asociado el vértice en la lista de costos
+                            (*i).second = costoActual; // actualizar el costo del vértice en la lista de costos con el nuevo costo
+                            for (j = listaOrdenada.begin(); j != listaOrdenada.end(); j++){
+                                if (j->first == aux->getAdy()){
+                                    (*j).second = costoActual;
+                                }
+                            }
+                            listaOrdenada.sort(comparacion);
+                            pila.push(verticeVertice(verticeActual, aux->getAdy())); // se apila la paraja: vértice actual y vértice destino
+                            costoActual -= aux->getPeso(); // actualizar el costo del vértice en la lista ordenada con el nuevo costo
+                        }
+                    }
+                }
+                if (band == 0){ // si el vértice no se encuentra en la lista de costos
+                    listaCostos.push_back(verticeCosto(aux->getAdy(), costoActual)); // insertar el vértice en la lista de costos, asociando el nuevo costo
+                    listaOrdenada.push_back(verticeCosto(aux->getAdy(), costoActual)); // insertar el vértice en la lista ordenada, asociando el nuevo costo
+                    listaOrdenada.sort(comparacion);
+                    pila.push(verticeVertice(verticeActual, aux->getAdy())); // se apila la pareja: vértice actual y vértice destino
+                    costoActual -= aux->getPeso();
+                }
+                aux = aux->getSig();
+            }
+        }
+        if (band2 == 0){ // si la lista ordenada se vació sin encontrar el destino: no existe una ruta entre esos vértice
+            cout << "No hay ruta entre esos dos vértices"; // no existe una ruta entre esos vértices.
+        }
+    }
+}
+
+
+/**
+ * Método:              comparacion
+ * Descripción:         Método que permite comparar costos
+ * @param a             variable de tipo pair<Vertice, int>
+ * @param b             variable de tipo pair<Vertice, int>
+ * @return              variable de tipo bool, true si a es menor a b, y false caso contrario
+ */
+bool Grafo::comparacion(pair<Vertice *, int> a, pair<Vertice *, int> b) {
+    return a.second < b.second;
 }
 
 
