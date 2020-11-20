@@ -64,4 +64,8 @@ void Gestor::primeroAnchura(string pOrigen, string pDestino) {
     getGrafo()->primeroAnchura(pOrigen, pDestino);
 }
 
+void Gestor::primeroProfundidad(string pOrigen, string pDestino) {
+    getGrafo()->primeroProfundidad(pOrigen, pDestino);
+}
+
 

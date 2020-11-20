@@ -342,6 +342,111 @@ void Grafo::primeroAnchura(Vertice *origen, Vertice *destino) {
     }
 }
 
+void Grafo::primeroProfundidad(string pOrigen, string pDestino) {
+    Vertice *origen = getVertice(pOrigen);
+    Vertice *destino = getVertice(pDestino);
+    primeroProfundidad(origen, destino);
+}
+
+/*
+ * Ruta de grafos
+    se recibe una pila con parejas de vértices origen-destino, y se recibe el vértice destino
+    el vértice destino se convierte en destino actual
+    mientras la pila no esté vacía
+    imprimir el destino actual
+    mientras la pila no esté vacía y el vértice destino en el tope de la pila sea distinto del destino actual
+    desapilar
+    si la pila no está vacía
+    el vértice origen en el tope de la pila se convierte en el destino actual
+ */
+
+/*
+ * Primero en profundidad
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+/*
+ * se recibe una pila con parejas de vértices origen-destino, y se recibe el vértice destino
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ */
+
+void Grafo::primeroProfundidad(Vertice *origen, Vertice *destino) {
+    if (origen == nullptr || destino == nullptr){
+        cout << "El origen o destino no existen\n";
+    } else {
+        int band, band2, band3 = 0;
+        Vertice *verticeActual, *destinoActual;
+        Arista *aux;
+        typedef pair<Vertice*, Vertice*> parVertices;
+        stack<Vertice*> pila;
+        list<Vertice*> lista;
+        stack<parVertices> pilaPar; // inicializar una pila que almacene parejas de datos origen-destino
+        list<Vertice*>::iterator i; // se declara un iterador para la lista
+        pila.push(origen); // colocar el vértice origen en una pila
+        while (!pila.empty()){ // mientras la pila no esté vacía
+            band = 0;
+            verticeActual = pila.top(); // almacenamos el tope de la fila
+            pila.pop(); // desapilar un vértice, seá el vértice actual
+            for (i = lista.begin(); i != lista.end(); i++){
+                if (verticeActual == *i){
+                    band = 1;
+                }
+            }
+            if (band == 0){ // si el vértice actual no ha sido visitado (no encontró ese vértice en la lista de visitados
+                if (verticeActual == destino){ // si el vértice actual es igual al vértice destino
+                    band3 = 1;
+                    // mostrar la ruta encontrada
+                    destinoActual = destino; // el vértice destino se convierte en destino actual
+                    while (!pilaPar.empty()){ // mientras la pila no esté vacía
+                        cout << destinoActual->getNombre() << "<-"; // imprimir el destino actual
+                        while (!pilaPar.empty() && pilaPar.top().second != destinoActual){ // mientras la pila no esté vacía y el vértice destino en el tipo de la pila sea distinto del destino actual
+                            pilaPar.pop(); // desapilar
+                        }
+                        if (!pilaPar.empty()){ // si la pila no está vacía
+                            destinoActual = pilaPar.top().first; // el vértice origen en el tope de la pila se convierte en el destino actual
+                        }
+                    }
+                    break; // terminar
+                }
+                lista.push_back(verticeActual); // colocar el vértice actual en la lista de visitados
+                aux = verticeActual->getAdy();
+                while (aux != nullptr){
+                    band2 = 0;
+                    for (i = lista.begin(); i != lista.end(); i++){
+                        if (aux->getAdy() == *i){
+                            band2 = 1;
+                        }
+                    }
+                    if (band2 == 0){ // para cada vértice que el vértice actual tiene como destino, y que no ha sido visitado
+                        pila.push(aux->getAdy()); // apilar el vértice
+                        pilaPar.push(parVertices(verticeActual, aux->getAdy())); // apilar la pareja: vértice actual y vértice destino
+                    }
+                    aux = aux->getSig();
+                }
+            }
+        }
+        if (band3 == 0){ // si la pila se vacío sin encontrar el destino
+            cout << "No hay ruta entre esos dos vértices"; // no existe una ruta entre esos vértices.
+        }
+    }
+}
+
 
 
 

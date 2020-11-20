@@ -44,6 +44,8 @@ public:
     void recorridoProfundidad(string pOrigen);
 
     void primeroAnchura(string pOrigen, string pDestino);
+
+    void primeroProfundidad(string pOrigen, string pDestino);
 private:
     Vertice *h;
 
@@ -56,6 +58,8 @@ private:
     void recorridoProfundidad(Vertice *origen);
 
     void primeroAnchura(Vertice * origen, Vertice * destino);
+
+    void primeroProfundidad(Vertice * origen, Vertice * destino);
 };
 
 

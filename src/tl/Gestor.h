@@ -37,6 +37,8 @@ public:
     void recorridoProfundidad(string pOrigen);
 
     void primeroAnchura(string pOrigen, string pDestino);
+
+    void primeroProfundidad(string pOrigen, string pDestino);
 private:
     Grafo *grafo;
 };

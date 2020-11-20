@@ -28,6 +28,7 @@ void tamanio();
 void recorridoAnchura();
 void recorridoProfundidad();
 void primeroAnchura();
+void primeroProfundidad();
 
 int main() {
     menu();
@@ -48,7 +49,10 @@ void menu() {
              "07 Recorrido en anchura\n" <<
              "08 Recorrido en profundidad\n" <<
              "09 Primero en anchura\n" <<
-             "10 Salir\n";
+             "10 Primero en profundidad\n" <<
+             "11 Primero en ...\n" <<
+             "12 Primero en ..\n" <<
+             "15 Salir\n";
         cin >> valor;
         opcion = validar.ingresarInt(valor);
         procesarMenu(opcion, salir);
@@ -84,6 +88,9 @@ void procesarMenu(int & pOpcion, bool & salir) {
             primeroAnchura();
             break;
         case 10:
+            primeroProfundidad();
+            break;
+        case 15:
             salir = true;
             break;
         default:
@@ -397,5 +404,17 @@ void primeroAnchura(){
 //        getline(cin, destino, '\n');
 //        cout << destino << endl;
         gestor.primeroAnchura(origen, destino);
+    }
+}
+void primeroProfundidad(){
+    if (gestor.vacio()){
+        cout << "Aún no se han ingresado vértices...\n";
+    } else {
+        string salida, llegada;
+        cout << "Ingrese el nombre de la vértice de salida\n";
+        cin >> salida;
+        cout << "Ingrese el nombre de la vértice de llegada\n";
+        cin >> llegada;
+        gestor.primeroProfundidad(salida, llegada);
     }
 }
