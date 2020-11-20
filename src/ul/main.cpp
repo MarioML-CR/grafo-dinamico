@@ -20,6 +20,7 @@ void eliminarGrafo();
 void tamanio();
 void recorridoAnchura();
 void recorridoProfundidad();
+void primeroAnchura();
 
 int main() {
     menu();
@@ -42,7 +43,7 @@ void menu() {
              "09 Eliminar grafo\n" <<
              "10 Recorrido en anchura\n" <<
              "11 Recorrido en profundidad\n" <<
-             "12 Primero mejor\n" <<
+             "12 Primero en anchura\n" <<
              "13 Salir\n";
         cin >> valor;
         opcion = validar.ingresarInt(valor);
@@ -85,7 +86,7 @@ void procesarMenu(int & pOpcion, bool & salir) {
             recorridoProfundidad();
             break;
         case 12:
-//            listaAdyacencia();
+            primeroAnchura();
             break;
         case 13:
             salir = true;
@@ -115,14 +116,26 @@ void insertVertice(){
 //    gestor.insertVertice("Michoacan");
 //    gestor.insertVertice("Los Cabos");
 
+// ejercio 2
+//    gestor.insertVertice("A");
+//    gestor.insertVertice("B");
+//    gestor.insertVertice("C");
+//    gestor.insertVertice("D");
+//    gestor.insertVertice("E");
+//    gestor.insertVertice("F");
+//    gestor.insertVertice("G");
 
-    gestor.insertVertice("A");
-    gestor.insertVertice("B");
-    gestor.insertVertice("C");
-    gestor.insertVertice("D");
-    gestor.insertVertice("E");
-    gestor.insertVertice("F");
-    gestor.insertVertice("G");
+    // ejercicio tres
+    gestor.insertVertice("TIJ");
+    gestor.insertVertice("MTY");
+    gestor.insertVertice("MZT");
+    gestor.insertVertice("BJX");
+    gestor.insertVertice("GDL");
+    gestor.insertVertice("SAN");
+    gestor.insertVertice("TAM");
+    gestor.insertVertice("MEX");
+    gestor.insertVertice("CUN");
+    gestor.insertVertice("MID");
 
 }
 void insertaArista(){
@@ -138,26 +151,45 @@ void insertaArista(){
 //    gestor.insertaArista("Michoacan", "DF", 300);
 //    gestor.insertaArista("Los Cabos", "Michoacan", 300);
 
-    gestor.insertaArista("A", "A", 13);
-    gestor.insertaArista("A", "D", 18);
-    gestor.insertaArista("B", "B", 52);
-    gestor.insertaArista("B", "C", 17);
-    gestor.insertaArista("B", "D", 83);
-    gestor.insertaArista("B", "F", 97);
-    gestor.insertaArista("B", "G", 60);
-    gestor.insertaArista("C", "A", 4);
-    gestor.insertaArista("D", "B", 97);
-    gestor.insertaArista("D", "C", 37);
-    gestor.insertaArista("D", "D", 22);
-    gestor.insertaArista("D", "E", 41);
-    gestor.insertaArista("D", "G", 64);
-    gestor.insertaArista("E", "B", 8);
-    gestor.insertaArista("E", "E", 45);
-    gestor.insertaArista("E", "F", 92);
-    gestor.insertaArista("F", "A", 8);
-    gestor.insertaArista("F", "B", 45);
-    gestor.insertaArista("F", "E", 42);
-    gestor.insertaArista("G", "D", 17);
+// ejercio 2
+//    gestor.insertaArista("A", "A", 13);
+//    gestor.insertaArista("A", "D", 18);
+//    gestor.insertaArista("B", "B", 52);
+//    gestor.insertaArista("B", "C", 17);
+//    gestor.insertaArista("B", "D", 83);
+//    gestor.insertaArista("B", "F", 97);
+//    gestor.insertaArista("B", "G", 60);
+//    gestor.insertaArista("C", "A", 4);
+//    gestor.insertaArista("D", "B", 97);
+//    gestor.insertaArista("D", "C", 37);
+//    gestor.insertaArista("D", "D", 22);
+//    gestor.insertaArista("D", "E", 41);
+//    gestor.insertaArista("D", "G", 64);
+//    gestor.insertaArista("E", "B", 8);
+//    gestor.insertaArista("E", "E", 45);
+//    gestor.insertaArista("E", "F", 92);
+//    gestor.insertaArista("F", "A", 8);
+//    gestor.insertaArista("F", "B", 45);
+//    gestor.insertaArista("F", "E", 42);
+//    gestor.insertaArista("G", "D", 17);
+
+    // ejercicio tres
+    gestor.insertaArista("TIJ", "MTY", 800);
+    gestor.insertaArista("MTY", "BJX", 700);
+    gestor.insertaArista("MZT", "TIJ", 400);
+    gestor.insertaArista("MZT", "BJX", 300);
+    gestor.insertaArista("BJX", "SAN", 900);
+    gestor.insertaArista("BJX", "TAM", 400);
+    gestor.insertaArista("BJX", "MEX", 350);
+    gestor.insertaArista("GDL", "MZT", 500);
+    gestor.insertaArista("GDL", "MTY", 450);
+    gestor.insertaArista("GDL", "BJX", 250);
+    gestor.insertaArista("GDL", "MEX", 500);
+    gestor.insertaArista("SAN", "MID", 1200);
+    gestor.insertaArista("TAM", "MID", 450);
+    gestor.insertaArista("MEX", "MID", 450);
+    gestor.insertaArista("MEX", "CUN", 650);
+    gestor.insertaArista("CUN", "GDL", 650);
 }
 void insertVerticeUser(){
 
@@ -234,5 +266,23 @@ void recorridoProfundidad(){
         cin.ignore();
         getline(cin, nombre, '\n');
         gestor.recorridoProfundidad(nombre);
+    }
+}
+void primeroAnchura(){
+    if (gestor.vacio()){
+        cout << "Aún no se han ingresado vértices...\n";
+    } else {
+        string origen, destino;
+        cout << "Ingrese el nombre del vértice origen\n";
+        cin >> origen;
+//        cin.ignore();
+//        getline(cin, origen, '\n');
+        cout << origen << endl;
+        cout << "Ingrese el nombre del vértice destino\n";
+        cin >> destino;
+//        cin.ignore();
+//        getline(cin, destino, '\n');
+//        cout << destino << endl;
+        gestor.primeroAnchura(origen, destino);
     }
 }

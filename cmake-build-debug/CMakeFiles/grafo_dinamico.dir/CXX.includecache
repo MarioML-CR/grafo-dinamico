@@ -10,12 +10,6 @@
 Vertice.h
 /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Vertice.h
 
-/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Grafo.cpp
-iostream
--
-Grafo.h
-/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Grafo.h
-
 /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Grafo.h
 Vertice.h
 /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Vertice.h
@@ -31,10 +25,6 @@ Arista.h
 /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Arista.h
 string
 -
-
-/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/tl/Gestor.cpp
-Gestor.h
-/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/tl/Gestor.h
 
 /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/tl/Gestor.h
 ../bl/Grafo.h

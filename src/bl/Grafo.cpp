@@ -284,12 +284,61 @@ void Grafo::primeroAnchura(Vertice *origen, Vertice *destino) {
     if (origen == nullptr || destino == nullptr){
         cout << "El origen o destino no existen\n";
     } else {
-        // colocar el vértice origen en una cola
-        // inicializar una pila que almacene parejas de datos origen-destino
-        // mientras la cola no esté vacía
-        // desencolar un vértice, será el vértice actual
-        //si el vértice actual no ha sido visitado:
-        // si el vértice
+        int band, band2, band3 = 0;
+        Vertice *verticeActual, *destinoActual;
+        Arista *aux;
+        typedef pair<Vertice*, Vertice*> VerticeVertice; // pila de parejas de vértices
+        queue<Vertice*> cola;
+        stack<VerticeVertice> pila; // inicializar una pila que almacene parejas de datos origen-destino
+        list<Vertice*> lista;
+        list<Vertice*>::iterator i;
+        cola.push(origen); // colocar el vértice origen en una cola
+        while (!cola.empty()){ // mientras la cola no esté vacía
+            band = 0;
+            verticeActual = cola.front();
+            cola.pop(); // desencolar un vértice, será el vértice actual
+            for (i = lista.begin(); i != lista.end(); i++) {
+                if (verticeActual == *i) {
+                    band =1;
+                }
+            }
+            if (band == 0){ //si el vértice actual no ha sido visitado:
+                // mostrar la ruta encontrada
+                if (verticeActual == destino){ // si el vértice actual es igual al vértice destino:
+                    band3 = 1;
+                    destinoActual = destino; // el vértice destino se convierte en destino actual
+                    while (!pila.empty()){ // mientras la pila no esté vacía
+                        cout << destinoActual->getNombre() << "<-"; // imprimir el destino actual; al revés porque en la pila se saca al revés
+                        while (!pila.empty() && pila.top().second != destinoActual){ // mientras la pila no esté vacía y el vértice destino en el tope de la pila sea distinto del destino actual
+                            pila.pop(); // desapilar
+                        }
+                        if (!pila.empty()){ // si la pila no está vacía
+                            destinoActual = pila.top().first; // el vértice origen en el tope de la pila se convierte en el destino actual
+                        }
+                    }
+//                    break;  // terminar
+                }
+                lista.push_back(verticeActual); // colocar el vértice actual en la lista de visitados
+                aux = verticeActual->getAdy();
+                while (aux != nullptr){
+                    band2 = 0;
+                    for (i = lista.begin(); i != lista.end(); i++){
+                        if (aux->getAdy() == *i){
+                            band2 = 1;
+                        }
+                    }
+                    if (band2 == 0){ // para cada vértice que el vértice actual tiene como destino, y que no ha sido visitado
+                        cola.push(aux->getAdy());
+                        pila.push(VerticeVertice(verticeActual, aux->getAdy())); // apilar la pareja: vértice actual y vértice destino
+                    }
+                    aux = aux->getSig(); // encolar el vértice
+                }
+            }
+        }
+        if (band3 == 0){ // si la cola se vació sin encontrar el destino
+            // no existe una ruta entre esos vértices
+            cout << "No hay ruta entre esos dos vértices\n";
+        }
     }
 }
 
