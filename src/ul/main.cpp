@@ -8,9 +8,16 @@ Gestor gestor;
 Validar validar;
 void menu();
 void procesarMenu(int &, bool &);
+void menuSecundario();
+void procesarMenuSecundario(int &, bool &);
+void menuInsertUser();
+void procesarMenuInsertUser(int &, bool &);
+void menuInserAuto();
+void procesarMenuInserAuto(int &, bool &);
 int ingresarNum(string);
-void insertVertice();
-void insertaArista();
+void insertVerAristCase1();
+void insertVerAristCase2();
+void insertVerAristCase3();
 void insertVerticeUser();
 void insertaAristaUser();
 void listaAdyacencia();
@@ -32,19 +39,16 @@ void menu() {
     int opcion = 0;
     do {
         cout << "\nMenú Árbol\n\nElija una opción\n" <<
-             "01 Agregar vértice (auto)\n" <<
-             "02 Agregar aristas (auto)\n" <<
-             "03 Agregar aristas (usuario)\n" <<
-             "04 Agregar aristas (usuario)\n" <<
-             "05 Imprimir\n" <<
-             "06 Tamaño\n" <<
-             "07 Eliminar vértice\n" <<
-             "08 Eliminar arista\n" <<
-             "09 Eliminar grafo\n" <<
-             "10 Recorrido en anchura\n" <<
-             "11 Recorrido en profundidad\n" <<
-             "12 Primero en anchura\n" <<
-             "13 Salir\n";
+             "01 Agregar vértice y aristas\n" <<
+             "02 Imprimir\n" <<
+             "03 Tamaño\n" <<
+             "04 Eliminar vértice\n" <<
+             "05 Eliminar arista\n" <<
+             "06 Eliminar grafo\n" <<
+             "07 Recorrido en anchura\n" <<
+             "08 Recorrido en profundidad\n" <<
+             "09 Primero en anchura\n" <<
+             "10 Salir\n";
         cin >> valor;
         opcion = validar.ingresarInt(valor);
         procesarMenu(opcion, salir);
@@ -53,42 +57,124 @@ void menu() {
 void procesarMenu(int & pOpcion, bool & salir) {
     switch (pOpcion) {
         case 1:
-            insertVertice();
+            menuSecundario();
             break;
         case 2:
-            insertaArista();
-            break;
-        case 3:
-            insertVerticeUser();
-            break;
-        case 4:
-            insertaAristaUser();
-            break;
-        case 5:
             listaAdyacencia();
             break;
-        case 6:
+        case 3:
             tamanio();
             break;
-        case 7:
+        case 4:
             eliminarVertice();
             break;
-        case 8:
+        case 5:
             eliminarArista();
             break;
-        case 9:
+        case 6:
             eliminarGrafo();
             break;
-        case 10:
+        case 7:
             recorridoAnchura();
             break;
-        case 11:
+        case 8:
             recorridoProfundidad();
             break;
-        case 12:
+        case 9:
             primeroAnchura();
             break;
-        case 13:
+        case 10:
+            salir = true;
+            break;
+        default:
+            cout << "Opción inválida\n";
+    }
+}
+void menuSecundario() {
+    bool salir;
+    string valor;
+    int opcion = 0;
+    do {
+        cout << "\nMenú de carga\n\nElija una opción\n" <<
+             "01 Agregar por usuario\n" <<
+             "02 Carga automática\n" <<
+             "03 Volver al menú principal\n";
+        cin >> valor;
+        opcion = validar.ingresarInt(valor);
+        procesarMenuSecundario(opcion, salir);
+    } while (!salir);
+}
+void procesarMenuSecundario(int & pOpcion, bool & salir) {
+    switch (pOpcion) {
+        case 1:
+            menuInsertUser();
+            break;
+        case 2:
+            menuInserAuto();
+            break;
+        case 3:
+            salir = true;
+            break;
+        default:
+            cout << "Opción inválida\n";
+    }
+}
+void menuInsertUser() {
+    bool salir;
+    string valor;
+    int opcion = 0;
+    do {
+        cout << "\nMenú de carga manual\n\nElija una opción\n" <<
+             "01 Agregar vértice\n" <<
+             "02 Agregar arista\n" <<
+             "03 Volver al menu anterior\n";
+        cin >> valor;
+        opcion = validar.ingresarInt(valor);
+        procesarMenuInsertUser(opcion, salir);
+    } while (!salir);
+}
+void procesarMenuInsertUser(int & pOpcion, bool & salir) {
+    switch (pOpcion) {
+        case 1:
+            insertVerticeUser();
+            break;
+        case 2:
+            insertaAristaUser();
+            break;
+        case 3:
+            salir = true;
+            break;
+        default:
+            cout << "Opción inválida\n";
+    }
+}
+void menuInserAuto() {
+    bool salir;
+    string valor;
+    int opcion = 0;
+    do {
+        cout << "\nMenú de carga automática\n\nElija una opción\n" <<
+             "01 Cargar caso 1\n" <<
+             "02 Cargar caso 2\n" <<
+             "03 Cargar caso 3\n" <<
+             "04 Volver al menu anterior\n";
+        cin >> valor;
+        opcion = validar.ingresarInt(valor);
+        procesarMenuInserAuto(opcion, salir);
+    } while (!salir);
+}
+void procesarMenuInserAuto(int & pOpcion, bool & salir) {
+    switch (pOpcion) {
+        case 1:
+            insertVerAristCase1();
+            break;
+        case 2:
+            insertVerAristCase2();
+            break;
+        case 3:
+            insertVerAristCase3();
+            break;
+        case 4:
             salir = true;
             break;
         default:
@@ -108,24 +194,92 @@ int ingresarNum(string msg){
     } while (num == -1);
     return num;
 }
-void insertVertice(){
-//    gestor.insertVertice("Guadalajara");
-//    gestor.insertVertice("Puebla");
-//    gestor.insertVertice("DF");
-//    gestor.insertVertice("Zacatecas");
-//    gestor.insertVertice("Michoacan");
-//    gestor.insertVertice("Los Cabos");
+void insertVerticeUser(){
+    int entradas;
+    cout << "Ingrese el número de vértices que va a ingresar\n";
+    cin >> entradas;
+    string vertice;
+    for (int i = 1; i <= entradas; ++i) {
+        cout << "Ingrese el nombre del vértice " << i << "\n";
+        cin >> vertice;
+        gestor.insertVertice(vertice);
+    }
+    cout << "La carga se realizó satisfactoriamente.\n";
+}
+void insertaAristaUser(){
+    int entradas;
+    cout << "Ingrese el número de aristas que va a ingresar\n";
+    cin >> entradas;
+    string salida, llegada;
+    string msg3 = "Ingrese el peso del vértice\n";
+    int peso;
+    for (int i = 1; i <= entradas; ++i) {
+        cout << "Ingrese el nombre de la vértice de salida " << i << "\n";
+        cin >> salida;
+        cout << "Ingrese el nombre de la vértice de llegada " << i << "\n";
+        cin >> llegada;
+        peso = ingresarNum(msg3);
+        gestor.insertaArista(salida, llegada, peso);
+    }
+    cout << "La carga se realizó satisfactoriamente.\n";
+}
+void insertVerAristCase1(){
+    // inserción de vértices
+    gestor.insertVertice("Guadalajara");
+    gestor.insertVertice("Puebla");
+    gestor.insertVertice("DF");
+    gestor.insertVertice("Zacatecas");
+    gestor.insertVertice("Michoacan");
+    gestor.insertVertice("Los Cabos");
+    // inserción de aristas
+    gestor.insertaArista("Guadalajara", "DF", 500);
+    gestor.insertaArista("Guadalajara", "Zacatecas", 200);
+    gestor.insertaArista("Guadalajara", "Los Cabos", 600);
+    gestor.insertaArista("Puebla", "Michoacan", 100);
+    gestor.insertaArista("Puebla", "DF", 500);
+    gestor.insertaArista("DF", "Los Cabos", 200);
+    gestor.insertaArista("Zacatecas", "Puebla", 300);
+    gestor.insertaArista("Zacatecas", "Los Cabos", 800);
+    gestor.insertaArista("Michoacan", "Guadalajara", 400);
+    gestor.insertaArista("Michoacan", "DF", 300);
+    gestor.insertaArista("Los Cabos", "Michoacan", 300);
+    cout << "La carga se realizó satisfactoriamente. Para ver reportes vuelva al menú principal\n";
+}
+void insertVerAristCase2(){
+    // inserción de vértices
+    gestor.insertVertice("A");
+    gestor.insertVertice("B");
+    gestor.insertVertice("C");
+    gestor.insertVertice("D");
+    gestor.insertVertice("E");
+    gestor.insertVertice("F");
+    gestor.insertVertice("G");
+    // inserción de aristas
+    gestor.insertaArista("A", "A", 13);
+    gestor.insertaArista("A", "D", 18);
+    gestor.insertaArista("B", "B", 52);
+    gestor.insertaArista("B", "C", 17);
+    gestor.insertaArista("B", "D", 83);
+    gestor.insertaArista("B", "F", 97);
+    gestor.insertaArista("B", "G", 60);
+    gestor.insertaArista("C", "A", 4);
+    gestor.insertaArista("D", "B", 97);
+    gestor.insertaArista("D", "C", 37);
+    gestor.insertaArista("D", "D", 22);
+    gestor.insertaArista("D", "E", 41);
+    gestor.insertaArista("D", "G", 64);
+    gestor.insertaArista("E", "B", 8);
+    gestor.insertaArista("E", "E", 45);
+    gestor.insertaArista("E", "F", 92);
+    gestor.insertaArista("F", "A", 8);
+    gestor.insertaArista("F", "B", 45);
+    gestor.insertaArista("F", "E", 42);
+    gestor.insertaArista("G", "D", 17);
+    cout << "La carga se realizó satisfactoriamente. Para ver reportes vuelva al menú principal\n";
 
-// ejercio 2
-//    gestor.insertVertice("A");
-//    gestor.insertVertice("B");
-//    gestor.insertVertice("C");
-//    gestor.insertVertice("D");
-//    gestor.insertVertice("E");
-//    gestor.insertVertice("F");
-//    gestor.insertVertice("G");
-
-    // ejercicio tres
+}
+void insertVerAristCase3(){
+    // inserción de vértices
     gestor.insertVertice("TIJ");
     gestor.insertVertice("MTY");
     gestor.insertVertice("MZT");
@@ -136,44 +290,7 @@ void insertVertice(){
     gestor.insertVertice("MEX");
     gestor.insertVertice("CUN");
     gestor.insertVertice("MID");
-
-}
-void insertaArista(){
-//    gestor.insertaArista("Guadalajara", "DF", 500);
-//    gestor.insertaArista("Guadalajara", "Zacatecas", 200);
-//    gestor.insertaArista("Guadalajara", "Los Cabos", 600);
-//    gestor.insertaArista("Puebla", "Michoacan", 100);
-//    gestor.insertaArista("Puebla", "DF", 500);
-//    gestor.insertaArista("DF", "Los Cabos", 200);
-//    gestor.insertaArista("Zacatecas", "Puebla", 300);
-//    gestor.insertaArista("Zacatecas", "Los Cabos", 800);
-//    gestor.insertaArista("Michoacan", "Guadalajara", 400);
-//    gestor.insertaArista("Michoacan", "DF", 300);
-//    gestor.insertaArista("Los Cabos", "Michoacan", 300);
-
-// ejercio 2
-//    gestor.insertaArista("A", "A", 13);
-//    gestor.insertaArista("A", "D", 18);
-//    gestor.insertaArista("B", "B", 52);
-//    gestor.insertaArista("B", "C", 17);
-//    gestor.insertaArista("B", "D", 83);
-//    gestor.insertaArista("B", "F", 97);
-//    gestor.insertaArista("B", "G", 60);
-//    gestor.insertaArista("C", "A", 4);
-//    gestor.insertaArista("D", "B", 97);
-//    gestor.insertaArista("D", "C", 37);
-//    gestor.insertaArista("D", "D", 22);
-//    gestor.insertaArista("D", "E", 41);
-//    gestor.insertaArista("D", "G", 64);
-//    gestor.insertaArista("E", "B", 8);
-//    gestor.insertaArista("E", "E", 45);
-//    gestor.insertaArista("E", "F", 92);
-//    gestor.insertaArista("F", "A", 8);
-//    gestor.insertaArista("F", "B", 45);
-//    gestor.insertaArista("F", "E", 42);
-//    gestor.insertaArista("G", "D", 17);
-
-    // ejercicio tres
+    // inserción de aristas
     gestor.insertaArista("TIJ", "MTY", 800);
     gestor.insertaArista("MTY", "BJX", 700);
     gestor.insertaArista("MZT", "TIJ", 400);
@@ -190,13 +307,9 @@ void insertaArista(){
     gestor.insertaArista("MEX", "MID", 450);
     gestor.insertaArista("MEX", "CUN", 650);
     gestor.insertaArista("CUN", "GDL", 650);
+    cout << "La carga se realizó satisfactoriamente. Para ver reportes vuelva al menú principal\n";
 }
-void insertVerticeUser(){
 
-}
-void insertaAristaUser(){
-
-}
 void listaAdyacencia(){
     if (gestor.vacio()){
         cout << "Aún no se han ingresado vértices...\n";
