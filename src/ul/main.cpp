@@ -205,10 +205,8 @@ int ingresarNum(string msg){
     return num;
 }
 void insertVerticeUser(){
-    int entradas;
-    cout << "Ingrese el número de vértices que va a ingresar\n";
-    cin >> entradas;
-    string vertice;
+    string vertice, msg = "número de vértices que va a ingresar\n";
+    int entradas = ingresarNum(msg);
     for (int i = 1; i <= entradas; ++i) {
         cout << "Ingrese el nombre del vértice " << i << "\n";
         cin >> vertice;
@@ -217,42 +215,44 @@ void insertVerticeUser(){
     cout << "La carga se realizó satisfactoriamente.\n";
 }
 void insertaAristaUser(){
-    int entradas;
-    cout << "Ingrese el número de aristas que va a ingresar\n";
-    cin >> entradas;
-    string salida, llegada;
-    string msg3 = "Ingrese el peso del vértice\n";
+    string salida, llegada, msg  = "número de aristas que va a ingresar\n";
+    int entradas = ingresarNum(msg);
     int peso;
     for (int i = 1; i <= entradas; ++i) {
         cout << "Ingrese el nombre de la vértice de salida " << i << "\n";
         cin >> salida;
         cout << "Ingrese el nombre de la vértice de llegada " << i << "\n";
+        msg = "Ingrese el peso del vértice\n";
         cin >> llegada;
-        peso = ingresarNum(msg3);
+        peso = ingresarNum(msg);
         gestor.insertaArista(salida, llegada, peso);
     }
     cout << "La carga se realizó satisfactoriamente.\n";
 }
 void insertVerAristCase1(){
     // inserción de vértices
-    gestor.insertVertice("Guadalajara");
-    gestor.insertVertice("Puebla");
-    gestor.insertVertice("DF");
-    gestor.insertVertice("Zacatecas");
-    gestor.insertVertice("Michoacan");
-    gestor.insertVertice("Los Cabos");
+    gestor.insertVertice("San_José");
+    gestor.insertVertice("Alajuela");
+    gestor.insertVertice("Cartago");
+    gestor.insertVertice("Heredia");
+    gestor.insertVertice("Puntarenas");
+    gestor.insertVertice("Guanacaste");
+    gestor.insertVertice("Limón");
     // inserción de aristas
-    gestor.insertaArista("Guadalajara", "DF", 500);
-    gestor.insertaArista("Guadalajara", "Zacatecas", 200);
-    gestor.insertaArista("Guadalajara", "Los Cabos", 600);
-    gestor.insertaArista("Puebla", "Michoacan", 100);
-    gestor.insertaArista("Puebla", "DF", 500);
-    gestor.insertaArista("DF", "Los Cabos", 200);
-    gestor.insertaArista("Zacatecas", "Puebla", 300);
-    gestor.insertaArista("Zacatecas", "Los Cabos", 800);
-    gestor.insertaArista("Michoacan", "Guadalajara", 400);
-    gestor.insertaArista("Michoacan", "DF", 300);
-    gestor.insertaArista("Los Cabos", "Michoacan", 300);
+    gestor.insertaArista("San_José", "Cartago", 500);
+    gestor.insertaArista("San_José", "Heredia", 200);
+    gestor.insertaArista("San_José", "Guanacaste", 600);
+    gestor.insertaArista("Alajuela", "Puntarenas", 100);
+    gestor.insertaArista("Alajuela", "Cartago", 500);
+    gestor.insertaArista("Cartago", "Guanacaste", 200);
+    gestor.insertaArista("Heredia", "Alajuela", 300);
+    gestor.insertaArista("Heredia", "Guanacaste", 800);
+    gestor.insertaArista("Puntarenas", "San_José", 400);
+    gestor.insertaArista("Puntarenas", "Cartago", 300);
+    gestor.insertaArista("Guanacaste", "Puntarenas", 300);
+    gestor.insertaArista("Limón", "San_José", 480);
+    gestor.insertaArista("Limón", "Heredia", 220);
+    gestor.insertaArista("Limón", "Cartago", 560);
     cout << "La carga se realizó satisfactoriamente. Para ver reportes vuelva al menú principal\n";
 }
 void insertVerAristCase2(){
