@@ -22,7 +22,7 @@ Código tomados de youtube de la Emmanuel G, de las siguientes direcciones:
 
 ### Métodos desarrollados
 
-* Agregar vértice
+* Agregar vértices
 * Agregar aristas
 * Imprimir grafo
 * Número de vértices

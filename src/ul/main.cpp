@@ -41,7 +41,7 @@ void menu() {
     int opcion = 0;
     do {
         cout << "\nMenú Árbol\n\nElija una opción\n" <<
-             "01 Agregar vértice y aristas\n" <<
+             "01 Agregar vértices y aristas\n" <<
              "02 Imprimir\n" <<
              "03 Número de vértices\n" <<
              "04 Eliminar vértice\n" <<
@@ -135,8 +135,8 @@ void menuInsertUser() {
     int opcion = 0;
     do {
         cout << "\nMenú de carga manual\n\nElija una opción\n" <<
-             "01 Agregar vértice\n" <<
-             "02 Agregar arista\n" <<
+             "01 Agregar vértices\n" <<
+             "02 Agregar aristas\n" <<
              "03 Volver al menu anterior\n";
         cin >> valor;
         opcion = validar.ingresarInt(valor);
