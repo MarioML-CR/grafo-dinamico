@@ -17,8 +17,8 @@ Código tomados de youtube de la Emmanuel G, de las siguientes direcciones:
 ### Casos autogenerados
 
 * [caso uno](/src/img/caso1.png)
-* [caso uno](/src/img/caso2.png)
-* [caso uno](/src/img/caso3.png)
+* [caso dos](/src/img/caso2.png)
+* [caso dos](/src/img/caso3.png)
 
 ### Métodos desarrollados
 
