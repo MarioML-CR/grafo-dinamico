@@ -23,7 +23,7 @@ public:
 
     bool vacio() const;
 
-    int tamanio() const;
+    int numVertices() const;
 
     Vertice *getVertice(string nombre);
 
@@ -37,7 +37,7 @@ public:
 
     bool eliminarVertice(string pEliminar);
 
-    void anular();
+    void elminarGrafo();
 
     void recorridoAnchura(string pOrigen);
 

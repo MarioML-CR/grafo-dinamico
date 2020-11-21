@@ -26,8 +26,12 @@ void Grafo::setH(Vertice *h) {
 bool Grafo::vacio() const {
     return getH() == nullptr;
 }
-
-int Grafo::tamanio() const {
+/**
+ * Método:              numVertices
+ * Descripción:         Método que permite establecer el número de vértices del grafo
+ * @return              variable de tipo int que representa el número de vértices del grafo
+ */
+int Grafo::numVertices() const {
     int cont = 0;
     Vertice * aux = getH();
     while (aux != nullptr){
@@ -36,7 +40,13 @@ int Grafo::tamanio() const {
     }
     return cont;
 }
-
+/**
+ * Método:              getVertice
+ * Descripción:         Método que permite obtener el nodo que contiene el nombre pasado
+ * por parámetro
+ * @param nombre        variable de tipo string que representa el nombre del nodo a buscar
+ * @return              variable de tipo Vértice que contiene el nombre pasado por parámetro
+ */
 Vertice *Grafo::getVertice(string nombre) {
     Vertice * aux = getH();
     while (aux != nullptr){
@@ -47,7 +57,13 @@ Vertice *Grafo::getVertice(string nombre) {
     }
     return aux;
 }
-
+/**
+ * Método:              insertaArista
+ * Descripción:         Método que permite insertar una arista o arco entre dos vértices
+ * @param salida        variable de tipo vértice que representa el vértice de salida
+ * @param llegada       variable de tipo vértice que representa el vértice de llegada
+ * @param peso          variable de tipo int que representa el peso del arco
+ */
 void Grafo::insertaArista(string salida, string llegada, int peso) {
     Vertice *origen = getVertice(salida);
     Vertice *destino = getVertice(llegada);
@@ -69,7 +85,11 @@ void Grafo::insertaArista(string salida, string llegada, int peso) {
         nueva->setAdy(destino);
     }
 }
-
+/**
+ * Método:              insertVertice
+ * Descripción:         Método que permite insertar un vértice al grafo
+ * @param nombre        variable de tipo string que representa el nombre del vértice
+ */
 void Grafo::insertVertice(string nombre) {
     Vertice *nuevo = new Vertice(nombre);
     if (vacio()) {
@@ -82,7 +102,10 @@ void Grafo::insertVertice(string nombre) {
         aux->setSig(nuevo);
     }
 }
-
+/**
+ * Método:              listaAdyacencia
+ * Descripción:         Método que permite imprimir la lista de adyacencia
+ */
 void Grafo::listaAdyacencia() {
     Vertice *vertAux = getH();
     Arista * arisAux;
@@ -97,14 +120,25 @@ void Grafo::listaAdyacencia() {
         cout << endl;
     }
 }
-
+/**
+ * Método:              eliminarArista
+ * Descripción:         Método público que permite eliminar un arco o arista entre dos vértices,
+ * este método recibe dos parametros de tipo string
+ * @param salida        variable de tipo string que representa el vértice de salida
+ * @param llegada       variable de tipo string que representa el vértice de llegada
+ */
 void Grafo::eliminarArista(string salida, string llegada) {
-    // TODO TIENE ERROR.
     Vertice *origen = getVertice(salida);
     Vertice *destino = getVertice(llegada);
     eliminarArista(origen, destino);
 }
-
+/**
+ * Método:              eliminarArista
+ * Descripción:         Método privado que permite eliminar un arco o arista entre dos vértices,
+ * este método recibe dos parámetros de tipo Vertice
+ * @param salida        variable de tipo vértice que representa el vértice de salida
+ * @param llegada       variable de tipo vértice que representa el vértice de llegada
+ */
 void Grafo::eliminarArista(Vertice * origen, Vertice * destino) {
     if (origen == nullptr || destino == nullptr){
         cout << "El origen o destino no existen\n";
@@ -135,7 +169,11 @@ void Grafo::eliminarArista(Vertice * origen, Vertice * destino) {
         }
     }
 }
-void Grafo::anular() {
+/**
+ * Método:              elminarGrafo
+ * Descripción:         Método que permite eliminar el grafo
+ */
+void Grafo::elminarGrafo() {
     Vertice *aux;
     while (getH() != nullptr){
         aux = getH();
@@ -143,12 +181,22 @@ void Grafo::anular() {
         delete aux;
     }
 }
-
+/**
+ * Método:              eliminarVertice
+ * Descripción:         Método público que permite eliminar un vértice
+ * @param pEliminar     variable de tipo string que representa el nombre del vértice
+ * @return              variable de tipo bool, true si se eliminó, false y no existe
+ */
 bool Grafo::eliminarVertice(string pEliminar) {
     Vertice *vert = getVertice(pEliminar);
     return eliminarVertice(vert);
 }
-
+/**
+ * Método:              eliminarVertice
+ * Descripción:         Método privado que permite eliminar un vértice
+ * @param vert          variable de tipo vértice que representa el vértice a eliminar
+ * @return              variable de tipo bool, true si se eliminó, false y no existe
+ */
 bool Grafo::eliminarVertice(Vertice *vert) {
     if (vert == nullptr){
         return false;
@@ -183,12 +231,20 @@ bool Grafo::eliminarVertice(Vertice *vert) {
         return true;
     }
 }
-
+/**
+ * Método:              recorridoAnchura
+ * Descripción:         Método público que permite hacer un recorrido por anchura del grafo
+ * @param pOrigen       variable de tipo string que representa el nombre de vértice de origen
+ */
 void Grafo::recorridoAnchura(string pOrigen) {
     Vertice *origen = getVertice(pOrigen);
     recorridoAnchura(origen);
 }
-
+/**
+ * Método:              recorridoAnchura
+ * Descripción:         Método privado que permite hacer un recorrido por anchura del grafo
+ * @param origen        variable de tipo vértice que representa el nombre de vértice de origen
+ */
 void Grafo::recorridoAnchura(Vertice *origen) {
     if (origen == nullptr){
         cout << "No exite el vértice\n";
@@ -228,12 +284,22 @@ void Grafo::recorridoAnchura(Vertice *origen) {
         }
     }
 }
-
+/**
+ * Método:              recorridoProfundidad
+ * Descripción:         Método público que permite hacer un recorrido en profundidad del grafo
+ * recibiendo como parámetro el nombre del vértice de origen
+ * @param pOrigen       variable de tipo string que representa el nombre del vértice de origen
+ */
 void Grafo::recorridoProfundidad(string pOrigen) {
     Vertice *origen = getVertice(pOrigen);
     recorridoProfundidad(origen);
 }
-
+/**
+ * Método:              recorridoProfundidad
+ * Descripción:         Método privado que permite hacer un recorrido en profundidad del grafo
+ * recibiendo como parámetro el vértice de origen
+ * @param origen        variable de tipo vértice que representa el nombre del vértice de origen
+ */
 void Grafo::recorridoProfundidad(Vertice *origen) {
     if (origen == nullptr){
         cout << "No exite el vértice\n";
@@ -273,13 +339,25 @@ void Grafo::recorridoProfundidad(Vertice *origen) {
         }
     }
 }
-
+/**
+ * Método:              primeroAnchura
+ * Descripción:         Método público que permite hacer un recorrido en anchura del grafo
+ * recibiendo como parámetros dos string del nombre de los vértices de origen y destino
+ * @param pOrigen       variable de tipo string que representa el nombre del vértice de origen
+ * @param pDestino      variable de tipo string que representa el nombre del vértice de destino
+ */
 void Grafo::primeroAnchura(string pOrigen, string pDestino) {
     Vertice *origen = getVertice(pOrigen);
     Vertice *destino = getVertice(pDestino);
     primeroAnchura(origen, destino);
 }
-
+/**
+ * Método:              primeroAnchura
+ * Descripción:         Método provado que permite hacer un recorrido en anchura del grafo
+ * recibiendo como parámetros dos variable de tipo vértice que representan los vértices de origen y destino
+ * @param origen        variable de tipo vértice que representa el vértice de origen
+ * @param destino       variable de tipo vértice que representa el vértice de destino
+ */
 void Grafo::primeroAnchura(Vertice *origen, Vertice *destino) {
     if (origen == nullptr || destino == nullptr){
         cout << "El origen o destino no existen\n";
@@ -341,27 +419,25 @@ void Grafo::primeroAnchura(Vertice *origen, Vertice *destino) {
         }
     }
 }
-
+/**
+ * Método:              primeroProfundidad
+ * Descripción:         Método público que permite hacer un recorrido en profundidad
+ * estableciendo la primera opción.
+ * @param pOrigen       variable de tipo string que representa el nombre del vértice de origen
+ * @param pDestino      variable de tipo string que representa el nombre del vértice de destino
+ */
 void Grafo::primeroProfundidad(string pOrigen, string pDestino) {
     Vertice *origen = getVertice(pOrigen);
     Vertice *destino = getVertice(pDestino);
     primeroProfundidad(origen, destino);
 }
-
-/*
- * Ruta de grafos
-    se recibe una pila con parejas de vértices origen-destino, y se recibe el vértice destino
-    el vértice destino se convierte en destino actual
-    mientras la pila no esté vacía
-    imprimir el destino actual
-    mientras la pila no esté vacía y el vértice destino en el tope de la pila sea distinto del destino actual
-    desapilar
-    si la pila no está vacía
-    el vértice origen en el tope de la pila se convierte en el destino actual
+/**
+ * Método:              primeroProfundidad
+ * Descripción:         Método privado que permite hacer un recorrido en profundidad
+ * estableciendo la primera opción.
+ * @param origen        variable de tipo vértice que representa el vértice de origen
+ * @param destino       variable de tipo vértice que representa el vértice de destino
  */
-
-
-
 void Grafo::primeroProfundidad(Vertice *origen, Vertice *destino) {
     if (origen == nullptr || destino == nullptr){
         cout << "El origen o destino no existen\n";
@@ -422,13 +498,23 @@ void Grafo::primeroProfundidad(Vertice *origen, Vertice *destino) {
         }
     }
 }
-
+/**
+ * Método:              dijkstra
+ * Descripción:         Método público que permite generar la ruta de menor costo.
+ * @param pOrigen       variable de tipo string que representa el nombre del vértice de origen
+ * @param pDestino      variable de tipo string que representa el nombre del vértice de destino
+ */
 void Grafo::dijkstra(string pOrigen, string pDestino) {
     Vertice *origen = getVertice(pOrigen);
     Vertice *destino = getVertice(pDestino);
     dijkstra(origen, destino);
 }
-
+/**
+ * Método:              dijkstra
+ * Descripción:         Método privado que permite generar la ruta de menor costo.
+ * @param origen        variable de tipo vértice que representa el vértice de origen
+ * @param destino       variable de tipo vértice que representa el vértice de destino
+ */
 void Grafo::dijkstra(Vertice *origen, Vertice *destino) {
     if (origen == nullptr || destino == nullptr){
         cout << "El origen o destino no existen\n";

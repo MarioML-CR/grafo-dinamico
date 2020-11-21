@@ -32,12 +32,12 @@ void Gestor::eliminarArista(string salida, string llegada) {
     getGrafo()->eliminarArista(salida, llegada);
 }
 
-void Gestor::anular() {
-    getGrafo()->anular();
+void Gestor::eliminarGrafo() {
+    getGrafo()->elminarGrafo();
 }
 
-int Gestor::tamanio() {
-    return getGrafo()->tamanio();
+int Gestor::numVertices() {
+    return getGrafo()->numVertices();
 }
 
 bool Gestor::vacio() const {

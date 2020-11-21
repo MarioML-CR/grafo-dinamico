@@ -24,7 +24,7 @@ void listaAdyacencia();
 void eliminarArista();
 void eliminarVertice();
 void eliminarGrafo();
-void tamanio();
+void numVertices();
 void recorridoAnchura();
 void recorridoProfundidad();
 void primeroAnchura();
@@ -43,7 +43,7 @@ void menu() {
         cout << "\nMenú Árbol\n\nElija una opción\n" <<
              "01 Agregar vértice y aristas\n" <<
              "02 Imprimir\n" <<
-             "03 Tamaño\n" <<
+             "03 Número de vértices\n" <<
              "04 Eliminar vértice\n" <<
              "05 Eliminar arista\n" <<
              "06 Eliminar grafo\n" <<
@@ -67,7 +67,7 @@ void procesarMenu(int & pOpcion, bool & salir) {
             listaAdyacencia();
             break;
         case 3:
-            tamanio();
+            numVertices();
             break;
         case 4:
             eliminarVertice();
@@ -358,15 +358,15 @@ void eliminarGrafo(){
     if (gestor.vacio()){
         cout << "Aún no se han ingresado vértices...\n";
     } else {
-        gestor.anular();
+        gestor.eliminarGrafo();
     }
 
 }
-void tamanio(){
+void numVertices(){
     if (gestor.vacio()){
         cout << "Aún no se han ingresado vértices...\n";
     } else {
-        cout << "La matriz de adyacencia tiene " + to_string(gestor.tamanio()) + " vértices\n";
+        cout << "La matriz de adyacencia tiene " + to_string(gestor.numVertices()) + " vértices\n";
     }
 }
 void recorridoAnchura(){

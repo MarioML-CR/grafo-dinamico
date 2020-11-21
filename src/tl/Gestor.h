@@ -26,9 +26,9 @@ public:
 
     string eliminarVertice(string vertice);
 
-    void anular();
+    void eliminarGrafo();
 
-    int tamanio();
+    int numVertices();
 
     bool vacio() const;
 
