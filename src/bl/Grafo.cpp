@@ -67,8 +67,6 @@ Vertice *Grafo::getVertice(string nombre) {
 void Grafo::insertaArista(string salida, string llegada, int peso) {
     Vertice *origen = getVertice(salida);
     Vertice *destino = getVertice(llegada);
-//    Vertice *origen = new Vertice(salida);
-//    Vertice *destino = new Vertice(llegada);
     Arista *nueva = new  Arista(peso);
     Arista *aux = origen->getAdy();
     if (aux == nullptr){
@@ -96,7 +94,7 @@ void Grafo::insertVertice(string nombre) {
         setH(nuevo);
     } else {
         Vertice *aux = getH();
-        while (aux->getSig() != nullptr){
+        while (aux->getSig() != nullptr ){
             aux = aux->getSig();
         }
         aux->setSig(nuevo);

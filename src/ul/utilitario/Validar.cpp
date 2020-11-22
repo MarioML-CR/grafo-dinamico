@@ -53,3 +53,14 @@ bool Validar::esPrimo(int pValor) {
         return false;
     }
 }
+
+int Validar::stringASCII(string & texto) {
+    int val, acum = 0;
+    char letra;
+    for (int i = 0; i < texto.length(); ++i) {
+        letra = texto[i];
+        val = letra;
+        acum += val;
+    }
+    return acum;
+}

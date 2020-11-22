@@ -30,6 +30,7 @@ void recorridoProfundidad();
 void primeroAnchura();
 void primeroProfundidad();
 void dijkstra();
+void pruebaAscii();
 
 int main() {
     menu();
@@ -60,6 +61,9 @@ void menu() {
 }
 void procesarMenu(int & pOpcion, bool & salir) {
     switch (pOpcion) {
+        case 0:
+            pruebaAscii();
+            break;
         case 1:
             menuSecundario();
             break;
@@ -432,4 +436,13 @@ void dijkstra(){
         cin >> llegada;
         gestor.dijkstra(salida, llegada);
     }
+}
+void pruebaAscii(){
+    string textoOriginal;;
+    cout << "ingrese el texto\n";
+    cin >> textoOriginal;
+    for (auto & c: textoOriginal) c = toupper(c);
+    int valor = validar.stringASCII(textoOriginal);
+    cout << "originar" << textoOriginal << endl;
+    cout << "valor texto " << to_string(valor) << endl;
 }

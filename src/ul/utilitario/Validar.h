@@ -14,6 +14,8 @@ public:
     int nPrimoMenorQue(int); // retorna el número primo menor al valor pasado por argumento
 
     bool esPrimo(int); // Analiza si un número es primo
+
+    int stringASCII(string &);
 };
 
 #endif //GRAFO_DINAMICO_VALIDAR_H
