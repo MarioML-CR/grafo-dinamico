@@ -13,7 +13,7 @@
 
 class Grafo {
 public:
-    Grafo(Vertice *h = nullptr);
+    Grafo(Vertice *head = nullptr, Vertice *tail = nullptr, int tam = 0);
 
     virtual ~Grafo();
 
@@ -21,15 +21,23 @@ public:
 
     void setHead(Vertice *head);
 
-    bool vacio() const;
+    Vertice *getTail() const;
+
+    void setTail(Vertice *tail);
+
+    int getTam() const;
+
+    void setTam(int tam);
+
+    bool esListaVacia() const;
 
     int numVertices() const;
 
     Vertice *getVertice(string nombre);
 
-    void insertaArista(string salida, string llegada, int peso);
-
     void insertVertice(int valor, string & nombre);
+
+    string insertaArista(string salida, string llegada, int peso);
 
     void listaAdyacencia();
 
@@ -50,6 +58,12 @@ public:
     void dijkstra(string pOrigen, string pDestino);
 private:
     Vertice *head;
+    Vertice *tail;
+    int tam;
+
+    void insertarAlIincio(int valor, string & nombre);
+
+    void insertarAlFinal(int valor, string & nombre);
 
     void eliminarArista(Vertice * origen, Vertice * destino);
 

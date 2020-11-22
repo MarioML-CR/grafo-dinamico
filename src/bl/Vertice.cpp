@@ -6,11 +6,11 @@
 
 //Vertice::Vertice(const string &nombre) : nombre(nombre) {
 //    setNombre(nombre);
-//    setSig(nullptr);
+//    setNext(nullptr);
 //    setAdy(nullptr);
 //}
-Vertice::Vertice(int valor, const string &nombre, Vertice *sig, Arista *ady): valor(valor), nombre(nombre), sig(sig),
-                                                                               ady(ady) {
+Vertice::Vertice(int valor, const string &nombre, Vertice *sig, Arista *ady): valor(valor), nombre(nombre), next(sig),
+                                                                              ady(ady) {
     setValor(valor);
     setNombre(nombre);
 }
@@ -27,12 +27,12 @@ void Vertice::setNombre(const string &nombre) {
     Vertice::nombre = nombre;
 }
 
-Vertice *Vertice::getSig() const {
-    return sig;
+Vertice *Vertice::getNext() const {
+    return next;
 }
 
-void Vertice::setSig(Vertice *sig) {
-    Vertice::sig = sig;
+void Vertice::setNext(Vertice *next) {
+    Vertice::next = next;
 }
 
 Arista *Vertice::getAdy() const {

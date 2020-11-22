@@ -27,9 +27,9 @@ public:
 
     void setNombre(const string &nombre);
 
-    Vertice *getSig() const;
+    Vertice *getNext() const;
 
-    void setSig(Vertice *sig);
+    void setNext(Vertice *next);
 
     Arista *getAdy() const;
 
@@ -42,7 +42,7 @@ public:
 private:
     int valor; // para ordenar lo vértices en forma ascendente
     string nombre;
-    Vertice *sig;
+    Vertice *next;
     Arista *ady;
 };
 

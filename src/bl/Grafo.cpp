@@ -6,10 +6,7 @@
 #include "Grafo.h"
 
 
-
-Grafo::Grafo(Vertice *h) : head(h) {
-    setHead(nullptr);
-}
+Grafo::Grafo(Vertice *head, Vertice *tail, int tam) : head(head), tail(tail), tam(tam) {}
 
 Grafo::~Grafo() {
 
@@ -23,7 +20,24 @@ void Grafo::setHead(Vertice *head) {
     Grafo::head = head;
 }
 
-bool Grafo::vacio() const {
+
+Vertice *Grafo::getTail() const {
+    return tail;
+}
+
+void Grafo::setTail(Vertice *tail) {
+    Grafo::tail = tail;
+}
+
+int Grafo::getTam() const {
+    return tam;
+}
+
+void Grafo::setTam(int tam) {
+    Grafo::tam = tam;
+}
+
+bool Grafo::esListaVacia() const {
     return getHead() == nullptr;
 }
 /**
@@ -32,13 +46,14 @@ bool Grafo::vacio() const {
  * @return              variable de tipo int que representa el número de vértices del grafo
  */
 int Grafo::numVertices() const {
-    int cont = 0;
-    Vertice * aux = getHead();
-    while (aux != nullptr){
-        aux = aux->getSig();
-        cont ++;
-    }
-    return cont;
+    return getTam();
+//    int cont = 0;
+//    Vertice * aux = getHead();
+//    while (aux != nullptr){
+//        aux = aux->getNext();
+//        cont ++;
+//    }
+//    return cont;
 }
 /**
  * Método:              getVertice
@@ -53,22 +68,61 @@ Vertice *Grafo::getVertice(string nombre) {
         if (aux->getNombre().compare(nombre) == 0) {
             return aux;
         }
-        aux = aux->getSig();
+        aux = aux->getNext();
     }
     return aux;
 }
 void Grafo::insertVertice(int valor, string &nombre) {
-    Vertice *nuevo = new Vertice(valor, nombre);
-    if (vacio()) {
-        setHead(nuevo);
+    if(esListaVacia()){
+        setHead(new Vertice(valor, nombre));
+        setTail(getHead());
+        setTam(getTam() + 1);
     } else {
-        Vertice *aux = getHead();
-        while (aux->getSig() != nullptr ){
-            aux = aux->getSig();
+        if (getHead()->getValor() >= valor) {
+            insertarAlIincio(valor, nombre);
+        } else if(getTail()->getValor() <= valor) { // insertar al final
+            insertarAlFinal(valor, nombre);
+        } else {
+            Vertice *aux = getHead();
+            do {
+                if (aux->getValor() <= valor && aux->getNext()->getValor() >= valor){
+                    Vertice *nuevo = new Vertice(valor, nombre);
+                    nuevo->setNext(aux->getNext());
+                    aux->setNext(nuevo);
+                    setTam(getTam() + 1);
+                    break;
+                }
+                aux =aux->getNext();
+            } while (aux->getNext() != nullptr);
         }
-        aux->setSig(nuevo);
     }
 }
+/**
+ * Método:              insertarAlIincio
+ * Descripción:         Método privado que permite insertar un vértice a la lista de vértices al inicio
+ * @param valor
+ * @param nombre
+ */
+void Grafo::insertarAlIincio(int valor, string &nombre) {
+    Vertice *nuevo = new Vertice(valor, nombre);
+    nuevo->setNext(getHead());
+    setHead(nuevo);
+    setTam(getTam() + 1);
+}
+/**
+ * Método:              insertarAlFinal
+ * Descripción:         Método privado que permite insertar un vértice a la lista de vértices al final
+ * @param valor
+ * @param nombre
+ */
+void Grafo::insertarAlFinal(int valor, string &nombre) {
+    Vertice *nuevo = new Vertice(valor, nombre);
+    getTail()->setNext(nuevo);
+    setTail(nuevo);
+    setTam(getTam() + 1);
+}
+
+
 /**
  * Método:              insertaArista
  * Descripción:         Método que permite insertar una arista o arco entre dos vértices
@@ -76,7 +130,8 @@ void Grafo::insertVertice(int valor, string &nombre) {
  * @param llegada       variable de tipo vértice que representa el vértice de llegada
  * @param peso          variable de tipo int que representa el peso del arco
  */
-void Grafo::insertaArista(string salida, string llegada, int peso) {
+string Grafo::insertaArista(string salida, string llegada, int peso) {
+    string res = "";
     Vertice *origen = getVertice(salida);
     Vertice *destino = getVertice(llegada);
     if (origen != nullptr && destino != nullptr){
@@ -98,7 +153,7 @@ void Grafo::insertaArista(string salida, string llegada, int peso) {
     } else {
         cout << "Uno de los vértices no existe\n";
     }
-
+    return res;
 }
 /**
  * Método:              insertVertice
@@ -119,7 +174,7 @@ void Grafo::listaAdyacencia() {
             cout << arisAux->getAdy()->getNombre() << "->";
             arisAux = arisAux->getSig();
         }
-        vertAux = vertAux->getSig();
+        vertAux = vertAux->getNext();
         cout << endl;
     }
 }
@@ -180,7 +235,7 @@ void Grafo::elminarGrafo() {
     Vertice *aux;
     while (getHead() != nullptr){
         aux = getHead();
-        setHead(getHead()->getSig());
+        setHead(getHead()->getNext());
         delete aux;
     }
 }
@@ -217,18 +272,18 @@ bool Grafo::eliminarVertice(Vertice *vert) {
                 }
                 aux = aux->getSig();
             }
-            actual = actual->getSig();
+            actual = actual->getNext();
         }
         actual = getHead();
         if (getHead() == vert){
-            setHead(getHead()->getSig());
+            setHead(getHead()->getNext());
             delete actual;
         } else {
             while (actual != vert){
                 anterior = actual;
-                actual = actual->getSig();
+                actual = actual->getNext();
             }
-            anterior->setSig(actual->getSig());
+            anterior->setNext(actual->getNext());
             delete actual;
         }
         return true;
@@ -600,6 +655,7 @@ void Grafo::dijkstra(Vertice *origen, Vertice *destino) {
 bool Grafo::comparacion(pair<Vertice *, int> a, pair<Vertice *, int> b) {
     return a.second < b.second;
 }
+
 
 
 

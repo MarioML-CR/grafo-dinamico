@@ -24,7 +24,7 @@ Código tomados de youtube de la Emmanuel G, de las siguientes direcciones:
 
 ### Métodos desarrollados
 
-* Agregar vértices
+* Agregar vértices (en forma ascendente según el valor ascci del texto ingresado)
 * Agregar aristas
 * Imprimir grafo
 * Número de vértices

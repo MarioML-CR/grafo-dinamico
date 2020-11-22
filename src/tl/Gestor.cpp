@@ -41,7 +41,7 @@ int Gestor::numVertices() {
 }
 
 bool Gestor::vacio() const {
-    return getGrafo()->vacio();
+    return getGrafo()->esListaVacia();
 }
 
 string Gestor::eliminarVertice(string vertice) {
