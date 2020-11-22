@@ -17,7 +17,9 @@ using namespace std;
 
 class Vertice {
 public:
-    Vertice(const string &nombre);
+//    Vertice(const string &nombre);
+
+    Vertice(int valor, const string &nombre, Vertice *sig = nullptr, Arista *ady = nullptr);
 
     virtual ~Vertice();
 
@@ -33,8 +35,12 @@ public:
 
     void setAdy(Arista *ady);
 
+    int getValor() const;
+
+    void setValor(int valor);
 
 private:
+    int valor; // para ordenar lo vértices en forma ascendente
     string nombre;
     Vertice *sig;
     Arista *ady;

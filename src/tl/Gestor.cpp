@@ -16,8 +16,8 @@ void Gestor::setGrafo(Grafo *grafo) {
     Gestor::grafo = grafo;
 }
 
-void Gestor::insertVertice(string nombre) {
-    getGrafo()->insertVertice(nombre);
+void Gestor::insertVertice(int valor, string nombre) {
+    getGrafo()->insertVertice(valor, nombre);
 }
 
 void Gestor::insertaArista(string salida, string llegada, int peso) {

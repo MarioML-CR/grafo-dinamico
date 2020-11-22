@@ -7,24 +7,24 @@
 
 
 
-Grafo::Grafo(Vertice *h) : h(h) {
-    setH(nullptr);
+Grafo::Grafo(Vertice *h) : head(h) {
+    setHead(nullptr);
 }
 
 Grafo::~Grafo() {
 
 }
 
-Vertice *Grafo::getH() const {
-    return h;
+Vertice *Grafo::getHead() const {
+    return head;
 }
 
-void Grafo::setH(Vertice *h) {
-    Grafo::h = h;
+void Grafo::setHead(Vertice *head) {
+    Grafo::head = head;
 }
 
 bool Grafo::vacio() const {
-    return getH() == nullptr;
+    return getHead() == nullptr;
 }
 /**
  * Método:              numVertices
@@ -33,7 +33,7 @@ bool Grafo::vacio() const {
  */
 int Grafo::numVertices() const {
     int cont = 0;
-    Vertice * aux = getH();
+    Vertice * aux = getHead();
     while (aux != nullptr){
         aux = aux->getSig();
         cont ++;
@@ -48,7 +48,7 @@ int Grafo::numVertices() const {
  * @return              variable de tipo Vértice que contiene el nombre pasado por parámetro
  */
 Vertice *Grafo::getVertice(string nombre) {
-    Vertice * aux = getH();
+    Vertice * aux = getHead();
     while (aux != nullptr){
         if (aux->getNombre().compare(nombre) == 0) {
             return aux;
@@ -56,6 +56,18 @@ Vertice *Grafo::getVertice(string nombre) {
         aux = aux->getSig();
     }
     return aux;
+}
+void Grafo::insertVertice(int valor, string &nombre) {
+    Vertice *nuevo = new Vertice(valor, nombre);
+    if (vacio()) {
+        setHead(nuevo);
+    } else {
+        Vertice *aux = getHead();
+        while (aux->getSig() != nullptr ){
+            aux = aux->getSig();
+        }
+        aux->setSig(nuevo);
+    }
 }
 /**
  * Método:              insertaArista
@@ -67,45 +79,38 @@ Vertice *Grafo::getVertice(string nombre) {
 void Grafo::insertaArista(string salida, string llegada, int peso) {
     Vertice *origen = getVertice(salida);
     Vertice *destino = getVertice(llegada);
-    Arista *nueva = new  Arista(peso);
-    Arista *aux = origen->getAdy();
-    if (aux == nullptr){
-        origen->setAdy(nueva);
-        nueva->setAdy(destino);
-    } else {
-        /** recorre las aristas hasta llegar a la última para insertar la nueva arista y
-         * conectarla con el vértice destino.
-         */
-        while (aux->getSig() != nullptr){
-            aux = aux->getSig();
+    if (origen != nullptr && destino != nullptr){
+        Arista *nueva = new  Arista(peso);
+        Arista *aux = origen->getAdy();
+        if (aux == nullptr){
+            origen->setAdy(nueva);
+            nueva->setAdy(destino);
+        } else {
+            /** recorre las aristas hasta llegar a la última para insertar la nueva arista y
+             * conectarla con el vértice destino.
+             */
+            while (aux->getSig() != nullptr){
+                aux = aux->getSig();
+            }
+            aux->setSig(nueva);
+            nueva->setAdy(destino);
         }
-        aux->setSig(nueva);
-        nueva->setAdy(destino);
+    } else {
+        cout << "Uno de los vértices no existe\n";
     }
+
 }
 /**
  * Método:              insertVertice
  * Descripción:         Método que permite insertar un vértice al grafo
  * @param nombre        variable de tipo string que representa el nombre del vértice
  */
-void Grafo::insertVertice(string nombre) {
-    Vertice *nuevo = new Vertice(nombre);
-    if (vacio()) {
-        setH(nuevo);
-    } else {
-        Vertice *aux = getH();
-        while (aux->getSig() != nullptr ){
-            aux = aux->getSig();
-        }
-        aux->setSig(nuevo);
-    }
-}
 /**
  * Método:              listaAdyacencia
  * Descripción:         Método que permite imprimir la lista de adyacencia
  */
 void Grafo::listaAdyacencia() {
-    Vertice *vertAux = getH();
+    Vertice *vertAux = getHead();
     Arista * arisAux;
     while (vertAux != nullptr){
         cout << vertAux->getNombre() << "->";
@@ -173,9 +178,9 @@ void Grafo::eliminarArista(Vertice * origen, Vertice * destino) {
  */
 void Grafo::elminarGrafo() {
     Vertice *aux;
-    while (getH() != nullptr){
-        aux = getH();
-        setH(getH()->getSig());
+    while (getHead() != nullptr){
+        aux = getHead();
+        setHead(getHead()->getSig());
         delete aux;
     }
 }
@@ -202,7 +207,7 @@ bool Grafo::eliminarVertice(Vertice *vert) {
     } else {
         Vertice *actual, *anterior;
         Arista *aux;
-        actual = getH();
+        actual = getHead();
         while (actual != nullptr){
             aux = actual->getAdy();
             while (aux != nullptr){
@@ -214,9 +219,9 @@ bool Grafo::eliminarVertice(Vertice *vert) {
             }
             actual = actual->getSig();
         }
-        actual =getH();
-        if (getH() == vert){
-            setH(getH()->getSig());
+        actual = getHead();
+        if (getHead() == vert){
+            setHead(getHead()->getSig());
             delete actual;
         } else {
             while (actual != vert){
@@ -595,6 +600,8 @@ void Grafo::dijkstra(Vertice *origen, Vertice *destino) {
 bool Grafo::comparacion(pair<Vertice *, int> a, pair<Vertice *, int> b) {
     return a.second < b.second;
 }
+
+
 
 
 

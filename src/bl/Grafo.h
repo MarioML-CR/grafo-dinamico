@@ -17,9 +17,9 @@ public:
 
     virtual ~Grafo();
 
-    Vertice *getH() const;
+    Vertice *getHead() const;
 
-    void setH(Vertice *h);
+    void setHead(Vertice *head);
 
     bool vacio() const;
 
@@ -29,7 +29,7 @@ public:
 
     void insertaArista(string salida, string llegada, int peso);
 
-    void insertVertice(string nombre);
+    void insertVertice(int valor, string & nombre);
 
     void listaAdyacencia();
 
@@ -49,7 +49,7 @@ public:
 
     void dijkstra(string pOrigen, string pDestino);
 private:
-    Vertice *h;
+    Vertice *head;
 
     void eliminarArista(Vertice * origen, Vertice * destino);
 

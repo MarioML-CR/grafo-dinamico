@@ -32,3 +32,23 @@ Arista.h
 string
 -
 
+/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/tl/Gestor.cpp
+Gestor.h
+/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/tl/Gestor.h
+
+/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/tl/Gestor.h
+../bl/Grafo.h
+/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Grafo.h
+
+/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/main.cpp
+iostream
+-
+../tl/Gestor.h
+/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/tl/Gestor.h
+utilitario/Validar.h
+/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/utilitario/Validar.h
+
+/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/utilitario/Validar.h
+iostream
+-
+
