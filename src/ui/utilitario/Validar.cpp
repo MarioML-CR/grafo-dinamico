@@ -3,7 +3,7 @@
 //
 
 #include "Validar.h"
-#include "Validar.h"
+
 int Validar::ingresarInt(string pValor) {
     try {
         return stoi(pValor);

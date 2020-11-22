@@ -5,7 +5,6 @@
 #ifndef GRAFO_DINAMICO_GRAFO_H
 #define GRAFO_DINAMICO_GRAFO_H
 
-//class Arista;
 #include "Vertice.h"
 #include <queue> // para la cola
 #include <list> // para la lista
