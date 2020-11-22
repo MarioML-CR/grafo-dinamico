@@ -56,7 +56,7 @@ bool Validar::esPrimo(int pValor) {
 
 int Validar::stringASCII(string & texto) {
     int val, acum = 0;
-    char letra;
+    unsigned char letra;
     for (int i = 0; i < texto.length(); ++i) {
         letra = texto[i];
         val = letra;

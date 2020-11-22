@@ -9,6 +9,8 @@
 /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Arista.h
 Vertice.h
 /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Vertice.h
+string
+-
 
 /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Grafo.cpp
 iostream

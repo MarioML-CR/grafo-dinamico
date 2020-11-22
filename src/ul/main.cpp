@@ -30,7 +30,6 @@ void recorridoProfundidad();
 void primeroAnchura();
 void primeroProfundidad();
 void dijkstra();
-void pruebaAscii();
 
 int main() {
     menu();
@@ -61,9 +60,6 @@ void menu() {
 }
 void procesarMenu(int & pOpcion, bool & salir) {
     switch (pOpcion) {
-        case 0:
-            pruebaAscii();
-            break;
         case 1:
             menuSecundario();
             break;
@@ -220,51 +216,44 @@ void insertVerticeUser(){
     }
     cout << "La carga se realizó satisfactoriamente.\n";
 }
-void pruebaAscii(){
-    string textoOriginal;;
-    cout << "ingrese el texto\n";
-    cin >> textoOriginal;
-    for (auto & c: textoOriginal) c = toupper(c);
-    int valor = validar.stringASCII(textoOriginal);
-    cout << "originar" << textoOriginal << endl;
-    cout << "valor texto " << to_string(valor) << endl;
-}
 void insertaAristaUser(){
-    string salida, llegada, msg  = "número de aristas que va a ingresar\n";
+    string origen, destino, msg  = "número de aristas que va a ingresar\n";
     int entradas = ingresarNum(msg);
     int peso;
     for (int i = 1; i <= entradas; ++i) {
-        cout << "Ingrese el nombre de la vértice de salida " << i << "\n";
-        cin >> salida;
-        cout << "Ingrese el nombre de la vértice de llegada " << i << "\n";
+        cout << "Ingrese el nombre de la vértice de origen " << i << "\n";
+        cin >> origen;
+        for (auto & c: origen) c = toupper(c);
+        cout << "Ingrese el nombre de la vértice de destino " << i << "\n";
         msg = "Ingrese el peso del vértice\n";
-        cin >> llegada;
+        cin >> destino;
+        for (auto & c: destino) c = toupper(c);
         peso = ingresarNum(msg);
-        gestor.insertaArista(salida, llegada, peso);
+        cout << gestor.insertaArista(origen, destino, peso);
     }
     cout << "La carga se realizó satisfactoriamente.\n";
 }
 void insertVerAristCase1(){
     // inserción de vértices
-    string nombres[7] = {"San_José", "Alajuela", "Cartago", "Heredia", "Puntarenas", "Guanacaste", "Limón"};
+    string nombres[7] = {"SAN_JOSé", "ALAJUELA", "CARTAGO", "HEREDIA", "PUNTARENAS", "GUANACASTE", "LIMóN"};
     for (int i = 0; i < 7; ++i) {
         gestor.insertVertice(validar.stringASCII(nombres[i]),nombres[i]);
     }
     // inserción de aristas
-    gestor.insertaArista("San_José", "Cartago", 500);
-    gestor.insertaArista("San_José", "Heredia", 200);
-    gestor.insertaArista("San_José", "Guanacaste", 600);
-    gestor.insertaArista("Alajuela", "Puntarenas", 100);
-    gestor.insertaArista("Alajuela", "Cartago", 500);
-    gestor.insertaArista("Cartago", "Guanacaste", 200);
-    gestor.insertaArista("Heredia", "Alajuela", 300);
-    gestor.insertaArista("Heredia", "Guanacaste", 800);
-    gestor.insertaArista("Puntarenas", "San_José", 400);
-    gestor.insertaArista("Puntarenas", "Cartago", 300);
-    gestor.insertaArista("Guanacaste", "Puntarenas", 300);
-    gestor.insertaArista("Limón", "San_José", 480);
-    gestor.insertaArista("Limón", "Heredia", 220);
-    gestor.insertaArista("Limón", "Cartago", 560);
+    gestor.insertaArista("SAN_JOSé", "CARTAGO", 500);
+    gestor.insertaArista("SAN_JOSé", "HEREDIA", 200);
+    gestor.insertaArista("SAN_JOSé", "GUANACASTE", 600);
+    gestor.insertaArista("ALAJUELA", "PUNTARENAS", 100);
+    gestor.insertaArista("ALAJUELA", "CARTAGO", 500);
+    gestor.insertaArista("CARTAGO", "GUANACASTE", 200);
+    gestor.insertaArista("HEREDIA", "ALAJUELA", 300);
+    gestor.insertaArista("HEREDIA", "GUANACASTE", 800);
+    gestor.insertaArista("PUNTARENAS", "SAN_JOSé", 400);
+    gestor.insertaArista("PUNTARENAS", "CARTAGO", 300);
+    gestor.insertaArista("GUANACASTE", "PUNTARENAS", 300);
+    gestor.insertaArista("LIMóN", "SAN_JOSé", 480);
+    gestor.insertaArista("LIMóN", "HEREDIA", 220);
+    gestor.insertaArista("LIMóN", "CARTAGO", 560);
     cout << "La carga se realizó satisfactoriamente. Para ver reportes vuelva al menú principal\n";
 }
 void insertVerAristCase2(){
@@ -273,13 +262,6 @@ void insertVerAristCase2(){
     for (int i = 0; i < 7; ++i) {
         gestor.insertVertice(validar.stringASCII(nombres[i]),nombres[i]);
     }
-//    gestor.insertVertice("A");
-//    gestor.insertVertice("B");
-//    gestor.insertVertice("C");
-//    gestor.insertVertice("D");
-//    gestor.insertVertice("E");
-//    gestor.insertVertice("F");
-//    gestor.insertVertice("G");
     // inserción de aristas
     gestor.insertaArista("A", "A", 13);
     gestor.insertaArista("A", "D", 18);
@@ -310,16 +292,6 @@ void insertVerAristCase3(){
     for (int i = 0; i < 10; ++i) {
         gestor.insertVertice(validar.stringASCII(nombres[i]),nombres[i]);
     }
-//    gestor.insertVertice(validar.stringASCII("TIJ"),"TIJ");
-//    gestor.insertVertice("MTY");
-//    gestor.insertVertice("MZT");
-//    gestor.insertVertice("BJX");
-//    gestor.insertVertice("GDL");
-//    gestor.insertVertice("SAN");
-//    gestor.insertVertice("TAM");
-//    gestor.insertVertice("MEX");
-//    gestor.insertVertice("CUN");
-//    gestor.insertVertice("MID");
     // inserción de aristas
     gestor.insertaArista("TIJ", "MTY", 800);
     gestor.insertaArista("MTY", "BJX", 700);
@@ -355,6 +327,7 @@ void eliminarVertice(){
         string vertice;
         cout << "Ingrese el nombre del vértice que desea eliminar\n";
         cin >> vertice;
+        for (auto & c: vertice) c = toupper(c);
         cout << gestor.eliminarVertice(vertice);
     }
 }
@@ -362,14 +335,14 @@ void eliminarArista(){
     if (gestor.vacio()){
         cout << "Aún no se han ingresado vértices...\n";
     } else {
-        string salida, llegada;
-        cout << "Ingrese la ciudad de salida\n";
-//        getline(cin, salida, '\n');
-        cin >> salida;
-        cout << "Ingrese la ciudad de llegada\n";
-//        getline(cin, llegada, '\n');
-        cin >> llegada;
-        gestor.eliminarArista(salida, llegada);
+        string origen, destino;
+        cout << "Ingrese la ciudad de origen\n";
+        cin >> origen;
+        for (auto & c: origen) c = toupper(c);
+        cout << "Ingrese la ciudad de destino\n";
+        cin >> destino;
+        for (auto & c: destino) c = toupper(c);
+        gestor.eliminarArista(origen, destino);
         cout << "Proceso completado satisfactoriamente\n";
     }
 
@@ -397,6 +370,7 @@ void recorridoAnchura(){
         cout << "Ingrese el nombre del vértice inicial\n";
         cin.ignore();
         getline(cin, nombre, '\n');
+        for (auto & c: nombre) c = toupper(c);
         gestor.recorridoAnchura(nombre);
     }
 }
@@ -408,6 +382,7 @@ void recorridoProfundidad(){
         cout << "Ingrese el nombre del vértice inicial\n";
         cin.ignore();
         getline(cin, nombre, '\n');
+        for (auto & c: nombre) c = toupper(c);
         gestor.recorridoProfundidad(nombre);
     }
 }
@@ -418,14 +393,11 @@ void primeroAnchura(){
         string origen, destino;
         cout << "Ingrese el nombre del vértice origen\n";
         cin >> origen;
-//        cin.ignore();
-//        getline(cin, origen, '\n');
+        for (auto & c: origen) c = toupper(c);
         cout << origen << endl;
         cout << "Ingrese el nombre del vértice destino\n";
         cin >> destino;
-//        cin.ignore();
-//        getline(cin, destino, '\n');
-//        cout << destino << endl;
+        for (auto & c: destino) c = toupper(c);
         gestor.primeroAnchura(origen, destino);
     }
 }
@@ -433,24 +405,28 @@ void primeroProfundidad(){
     if (gestor.vacio()){
         cout << "Aún no se han ingresado vértices...\n";
     } else {
-        string salida, llegada;
-        cout << "Ingrese el nombre de la vértice de salida\n";
-        cin >> salida;
-        cout << "Ingrese el nombre de la vértice de llegada\n";
-        cin >> llegada;
-        gestor.primeroProfundidad(salida, llegada);
+        string origen, destino;
+        cout << "Ingrese el nombre de la vértice de origen\n";
+        cin >> origen;
+        for (auto & c: origen) c = toupper(c);
+        cout << "Ingrese el nombre de la vértice de destino\n";
+        cin >> destino;
+        for (auto & c: destino) c = toupper(c);
+        gestor.primeroProfundidad(origen, destino);
     }
 }
 void dijkstra(){
     if (gestor.vacio()){
         cout << "Aún no se han ingresado vértices...\n";
     } else {
-        string salida, llegada;
-        cout << "Ingrese el nombre de la vértice de salida\n";
-        cin >> salida;
-        cout << "Ingrese el nombre de la vértice de llegada\n";
-        cin >> llegada;
-        gestor.dijkstra(salida, llegada);
+        string origen, destino;
+        cout << "Ingrese el nombre de la vértice de origen\n";
+        cin >> origen;
+        for (auto & c: origen) c = toupper(c);
+        cout << "Ingrese el nombre de la vértice de destino\n";
+        cin >> destino;
+        for (auto & c: destino) c = toupper(c);
+        gestor.dijkstra(origen, destino);
     }
 }
 

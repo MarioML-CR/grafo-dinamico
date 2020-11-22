@@ -6,16 +6,23 @@
 #define GRAFO_DINAMICO_ARISTA_H
 class Arista;
 #include "Vertice.h"
+#include <string>
+using namespace std;
 
 class Arista {
 public:
-    Arista(int peso);
+
+    Arista(int peso, const string &nombre, Vertice *ady, Arista *sig = nullptr);
 
     virtual ~Arista();
 
     int getPeso() const;
 
     void setPeso(int peso);
+
+    const string &getNombre() const;
+
+    void setNombre(const string &nombre);
 
     Arista *getSig() const;
 
@@ -27,8 +34,9 @@ public:
 
 private:
     int peso;
-    Arista *sig;
+    string nombre;
     Vertice *ady;
+    Arista *sig;
 };
 
 

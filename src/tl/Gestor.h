@@ -18,7 +18,7 @@ public:
 
     void insertVertice(int valor, string nombre);
 
-    void insertaArista(string salida, string llegada, int peso);
+    string insertaArista(string salida, string llegada, int peso);
 
     void listaAdyacencia();
 

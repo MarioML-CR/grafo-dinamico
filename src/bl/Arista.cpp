@@ -4,10 +4,11 @@
 
 #include "Arista.h"
 
-Arista::Arista(int peso) : peso(peso) {
+Arista::Arista(int peso, const string &nombre, Vertice *ady, Arista *sig) : peso(peso), nombre(nombre), ady(ady),
+                                                                            sig(sig) {
     setPeso(peso);
-    setAdy(nullptr);
-    setSig(nullptr);
+    setNombre(nombre);
+    setAdy(ady);
 }
 
 Arista::~Arista() {
@@ -20,6 +21,14 @@ int Arista::getPeso() const {
 
 void Arista::setPeso(int peso) {
     Arista::peso = peso;
+}
+
+const string &Arista::getNombre() const {
+    return nombre;
+}
+
+void Arista::setNombre(const string &nombre) {
+    Arista::nombre = nombre;
 }
 
 Arista *Arista::getSig() const {
@@ -37,3 +46,8 @@ Vertice *Arista::getAdy() const {
 void Arista::setAdy(Vertice *ady) {
     Arista::ady = ady;
 }
+
+
+
+
+

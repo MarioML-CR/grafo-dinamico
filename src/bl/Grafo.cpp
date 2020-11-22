@@ -47,13 +47,6 @@ bool Grafo::esListaVacia() const {
  */
 int Grafo::numVertices() const {
     return getTam();
-//    int cont = 0;
-//    Vertice * aux = getHead();
-//    while (aux != nullptr){
-//        aux = aux->getNext();
-//        cont ++;
-//    }
-//    return cont;
 }
 /**
  * Método:              getVertice
@@ -62,7 +55,7 @@ int Grafo::numVertices() const {
  * @param nombre        variable de tipo string que representa el nombre del nodo a buscar
  * @return              variable de tipo Vértice que contiene el nombre pasado por parámetro
  */
-Vertice *Grafo::getVertice(string nombre) {
+Vertice *Grafo::getVertice(string &nombre) {
     Vertice * aux = getHead();
     while (aux != nullptr){
         if (aux->getNombre().compare(nombre) == 0) {
@@ -130,12 +123,12 @@ void Grafo::insertarAlFinal(int valor, string &nombre) {
  * @param llegada       variable de tipo vértice que representa el vértice de llegada
  * @param peso          variable de tipo int que representa el peso del arco
  */
-string Grafo::insertaArista(string salida, string llegada, int peso) {
+string Grafo::insertaArista(string &salida, string &llegada, int peso) {
     string res = "";
     Vertice *origen = getVertice(salida);
     Vertice *destino = getVertice(llegada);
     if (origen != nullptr && destino != nullptr){
-        Arista *nueva = new  Arista(peso);
+        Arista *nueva = new  Arista(peso, llegada,destino);
         Arista *aux = origen->getAdy();
         if (aux == nullptr){
             origen->setAdy(nueva);
@@ -185,7 +178,7 @@ void Grafo::listaAdyacencia() {
  * @param salida        variable de tipo string que representa el vértice de salida
  * @param llegada       variable de tipo string que representa el vértice de llegada
  */
-void Grafo::eliminarArista(string salida, string llegada) {
+void Grafo::eliminarArista(string &salida, string &llegada) {
     Vertice *origen = getVertice(salida);
     Vertice *destino = getVertice(llegada);
     eliminarArista(origen, destino);
@@ -245,7 +238,7 @@ void Grafo::elminarGrafo() {
  * @param pEliminar     variable de tipo string que representa el nombre del vértice
  * @return              variable de tipo bool, true si se eliminó, false y no existe
  */
-bool Grafo::eliminarVertice(string pEliminar) {
+bool Grafo::eliminarVertice(string &pEliminar) {
     Vertice *vert = getVertice(pEliminar);
     return eliminarVertice(vert);
 }
@@ -294,7 +287,7 @@ bool Grafo::eliminarVertice(Vertice *vert) {
  * Descripción:         Método público que permite hacer un recorrido por anchura del grafo
  * @param pOrigen       variable de tipo string que representa el nombre de vértice de origen
  */
-void Grafo::recorridoAnchura(string pOrigen) {
+void Grafo::recorridoAnchura(string &pOrigen) {
     Vertice *origen = getVertice(pOrigen);
     recorridoAnchura(origen);
 }
@@ -348,7 +341,7 @@ void Grafo::recorridoAnchura(Vertice *origen) {
  * recibiendo como parámetro el nombre del vértice de origen
  * @param pOrigen       variable de tipo string que representa el nombre del vértice de origen
  */
-void Grafo::recorridoProfundidad(string pOrigen) {
+void Grafo::recorridoProfundidad(string &pOrigen) {
     Vertice *origen = getVertice(pOrigen);
     recorridoProfundidad(origen);
 }
@@ -404,7 +397,7 @@ void Grafo::recorridoProfundidad(Vertice *origen) {
  * @param pOrigen       variable de tipo string que representa el nombre del vértice de origen
  * @param pDestino      variable de tipo string que representa el nombre del vértice de destino
  */
-void Grafo::primeroAnchura(string pOrigen, string pDestino) {
+void Grafo::primeroAnchura(string &pOrigen, string &pDestino) {
     Vertice *origen = getVertice(pOrigen);
     Vertice *destino = getVertice(pDestino);
     primeroAnchura(origen, destino);
@@ -484,7 +477,7 @@ void Grafo::primeroAnchura(Vertice *origen, Vertice *destino) {
  * @param pOrigen       variable de tipo string que representa el nombre del vértice de origen
  * @param pDestino      variable de tipo string que representa el nombre del vértice de destino
  */
-void Grafo::primeroProfundidad(string pOrigen, string pDestino) {
+void Grafo::primeroProfundidad(string &pOrigen, string &pDestino) {
     Vertice *origen = getVertice(pOrigen);
     Vertice *destino = getVertice(pDestino);
     primeroProfundidad(origen, destino);
@@ -562,7 +555,7 @@ void Grafo::primeroProfundidad(Vertice *origen, Vertice *destino) {
  * @param pOrigen       variable de tipo string que representa el nombre del vértice de origen
  * @param pDestino      variable de tipo string que representa el nombre del vértice de destino
  */
-void Grafo::dijkstra(string pOrigen, string pDestino) {
+void Grafo::dijkstra(string &pOrigen, string &pDestino) {
     Vertice *origen = getVertice(pOrigen);
     Vertice *destino = getVertice(pDestino);
     dijkstra(origen, destino);

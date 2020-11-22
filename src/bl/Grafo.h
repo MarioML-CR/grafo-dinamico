@@ -33,29 +33,29 @@ public:
 
     int numVertices() const;
 
-    Vertice *getVertice(string nombre);
+    Vertice *getVertice(string &nombre);
 
     void insertVertice(int valor, string & nombre);
 
-    string insertaArista(string salida, string llegada, int peso);
+    string insertaArista(string &salida, string &llegada, int peso);
 
     void listaAdyacencia();
 
-    void eliminarArista(string salida, string llegada);
+    void eliminarArista(string &salida, string &llegada);
 
-    bool eliminarVertice(string pEliminar);
+    bool eliminarVertice(string &pEliminar);
 
     void elminarGrafo();
 
-    void recorridoAnchura(string pOrigen);
+    void recorridoAnchura(string &pOrigen);
 
-    void recorridoProfundidad(string pOrigen);
+    void recorridoProfundidad(string &pOrigen);
 
-    void primeroAnchura(string pOrigen, string pDestino);
+    void primeroAnchura(string &pOrigen, string &pDestino);
 
-    void primeroProfundidad(string pOrigen, string pDestino);
+    void primeroProfundidad(string &pOrigen, string &pDestino);
 
-    void dijkstra(string pOrigen, string pDestino);
+    void dijkstra(string &pOrigen, string &pDestino);
 private:
     Vertice *head;
     Vertice *tail;
