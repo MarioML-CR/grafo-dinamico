@@ -12,21 +12,11 @@ Vertice.h
 string
 -
 
-/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Grafo.cpp
-iostream
--
-Grafo.h
-/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Grafo.h
-
-/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Grafo.h
+/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Vertice.cpp
+Arista.h
+/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Arista.h
 Vertice.h
 /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Vertice.h
-queue
--
-list
--
-stack
--
 
 /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Vertice.h
 Arista.h

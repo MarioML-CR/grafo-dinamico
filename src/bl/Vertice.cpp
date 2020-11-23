@@ -4,11 +4,7 @@
 #include "Arista.h"
 #include "Vertice.h"
 
-//Vertice::Vertice(const string &nombre) : nombre(nombre) {
-//    setNombre(nombre);
-//    setNext(nullptr);
-//    setAdy(nullptr);
-//}
+
 Vertice::Vertice(int valor, const string &nombre, Vertice *sig, Arista *ady): valor(valor), nombre(nombre), next(sig),
                                                                               ady(ady) {
     setValor(valor);
