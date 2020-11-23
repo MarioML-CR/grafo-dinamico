@@ -20,13 +20,13 @@ CMakeFiles/grafo_dinamico.dir/src/tl/Gestor.cpp.o
  /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Vertice.h
  /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/tl/Gestor.cpp
  /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/tl/Gestor.h
-CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o
+CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o
  /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Arista.h
  /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Grafo.h
  /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/bl/Vertice.h
  /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/tl/Gestor.h
- /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/main.cpp
- /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/utilitario/Validar.h
-CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.o
- /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/utilitario/Validar.cpp
- /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/utilitario/Validar.h
+ /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ui/main.cpp
+ /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ui/utilitario/Validar.h
+CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.o
+ /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ui/utilitario/Validar.cpp
+ /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ui/utilitario/Validar.h

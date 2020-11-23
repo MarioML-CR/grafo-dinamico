@@ -229,8 +229,11 @@ void Grafo::elminarGrafo() {
     while (getHead() != nullptr){
         aux = getHead();
         setHead(getHead()->getNext());
+        aux = nullptr;
         delete aux;
     }
+    setTail(nullptr);
+    setTam(0);
 }
 /**
  * Método:              eliminarVertice

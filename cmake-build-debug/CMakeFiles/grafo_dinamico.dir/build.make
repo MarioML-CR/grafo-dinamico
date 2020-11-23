@@ -77,31 +77,31 @@ include CMakeFiles/grafo_dinamico.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/grafo_dinamico.dir/flags.make
 
-CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o: CMakeFiles/grafo_dinamico.dir/flags.make
-CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o: ../src/ul/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o -c /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/main.cpp
+CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o: CMakeFiles/grafo_dinamico.dir/flags.make
+CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o: ../src/ui/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o -c /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ui/main.cpp
 
-CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/main.cpp > CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.i
+CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ui/main.cpp > CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.i
 
-CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/main.cpp -o CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.s
+CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ui/main.cpp -o CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.s
 
-CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.o: CMakeFiles/grafo_dinamico.dir/flags.make
-CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.o: ../src/ul/utilitario/Validar.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.o -c /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/utilitario/Validar.cpp
+CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.o: CMakeFiles/grafo_dinamico.dir/flags.make
+CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.o: ../src/ui/utilitario/Validar.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.o -c /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ui/utilitario/Validar.cpp
 
-CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/utilitario/Validar.cpp > CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.i
+CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ui/utilitario/Validar.cpp > CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.i
 
-CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/utilitario/Validar.cpp -o CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.s
+CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ui/utilitario/Validar.cpp -o CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.s
 
 CMakeFiles/grafo_dinamico.dir/src/tl/Gestor.cpp.o: CMakeFiles/grafo_dinamico.dir/flags.make
 CMakeFiles/grafo_dinamico.dir/src/tl/Gestor.cpp.o: ../src/tl/Gestor.cpp
@@ -157,8 +157,8 @@ CMakeFiles/grafo_dinamico.dir/src/bl/Grafo.cpp.s: cmake_force
 
 # Object files for target grafo_dinamico
 grafo_dinamico_OBJECTS = \
-"CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o" \
-"CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.o" \
+"CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o" \
+"CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.o" \
 "CMakeFiles/grafo_dinamico.dir/src/tl/Gestor.cpp.o" \
 "CMakeFiles/grafo_dinamico.dir/src/bl/Vertice.cpp.o" \
 "CMakeFiles/grafo_dinamico.dir/src/bl/Arista.cpp.o" \
@@ -167,8 +167,8 @@ grafo_dinamico_OBJECTS = \
 # External object files for target grafo_dinamico
 grafo_dinamico_EXTERNAL_OBJECTS =
 
-grafo_dinamico: CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o
-grafo_dinamico: CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.o
+grafo_dinamico: CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o
+grafo_dinamico: CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.o
 grafo_dinamico: CMakeFiles/grafo_dinamico.dir/src/tl/Gestor.cpp.o
 grafo_dinamico: CMakeFiles/grafo_dinamico.dir/src/bl/Vertice.cpp.o
 grafo_dinamico: CMakeFiles/grafo_dinamico.dir/src/bl/Arista.cpp.o

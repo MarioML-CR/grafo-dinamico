@@ -104,13 +104,13 @@
 		<Unit filename="/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/tl/Gestor.h">
 			<Option target="grafo_dinamico"/>
 		</Unit>
-		<Unit filename="/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/main.cpp">
+		<Unit filename="/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ui/main.cpp">
 			<Option target="grafo_dinamico"/>
 		</Unit>
-		<Unit filename="/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/utilitario/Validar.cpp">
+		<Unit filename="/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ui/utilitario/Validar.cpp">
 			<Option target="grafo_dinamico"/>
 		</Unit>
-		<Unit filename="/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ul/utilitario/Validar.h">
+		<Unit filename="/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/src/ui/utilitario/Validar.h">
 			<Option target="grafo_dinamico"/>
 		</Unit>
 		<Unit filename="/Users/mmartinez/Documents/GitHub/estructuras_datos_II/grafo-dinamico/CMakeLists.txt">

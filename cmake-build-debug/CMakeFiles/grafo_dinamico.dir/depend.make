@@ -20,13 +20,13 @@ CMakeFiles/grafo_dinamico.dir/src/tl/Gestor.cpp.o: ../src/bl/Vertice.h
 CMakeFiles/grafo_dinamico.dir/src/tl/Gestor.cpp.o: ../src/tl/Gestor.cpp
 CMakeFiles/grafo_dinamico.dir/src/tl/Gestor.cpp.o: ../src/tl/Gestor.h
 
-CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o: ../src/bl/Arista.h
-CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o: ../src/bl/Grafo.h
-CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o: ../src/bl/Vertice.h
-CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o: ../src/tl/Gestor.h
-CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o: ../src/ul/main.cpp
-CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o: ../src/ul/utilitario/Validar.h
+CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o: ../src/bl/Arista.h
+CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o: ../src/bl/Grafo.h
+CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o: ../src/bl/Vertice.h
+CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o: ../src/tl/Gestor.h
+CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o: ../src/ui/main.cpp
+CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o: ../src/ui/utilitario/Validar.h
 
-CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.o: ../src/ul/utilitario/Validar.cpp
-CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.o: ../src/ul/utilitario/Validar.h
+CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.o: ../src/ui/utilitario/Validar.cpp
+CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.o: ../src/ui/utilitario/Validar.h
 

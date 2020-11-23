@@ -3,8 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/grafo_dinamico.dir/src/bl/Grafo.cpp.o"
   "CMakeFiles/grafo_dinamico.dir/src/bl/Vertice.cpp.o"
   "CMakeFiles/grafo_dinamico.dir/src/tl/Gestor.cpp.o"
-  "CMakeFiles/grafo_dinamico.dir/src/ul/main.cpp.o"
-  "CMakeFiles/grafo_dinamico.dir/src/ul/utilitario/Validar.cpp.o"
+  "CMakeFiles/grafo_dinamico.dir/src/ui/main.cpp.o"
+  "CMakeFiles/grafo_dinamico.dir/src/ui/utilitario/Validar.cpp.o"
   "grafo_dinamico"
   "grafo_dinamico.pdb"
 )
